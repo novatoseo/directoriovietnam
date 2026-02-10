@@ -1,0 +1,639 @@
+/*
+ * styles.css
+ *
+ * Esta hoja de estilos sigue la estructura recomendada en el SOP para
+ * directorios programáticos. Todas las secciones están comentadas
+ * para que puedas personalizar y ampliar el diseño según tus
+ * necesidades. El enfoque es mobile‑first, con breakpoints
+ * específicos para 768 px, 1024 px y 1280 px.
+ */
+
+/* ------------------------------------------------------------------
+   VARIABLES CSS
+   Define aquí los colores principales, tipografía y espaciados base.
+   Puedes ajustar estos valores para adaptar la identidad visual de tu
+   proyecto. 
+   ------------------------------------------------------------------ */
+:root {
+  --color-primary: #2563eb; /* Azul principal */
+  --color-primary-dark: #1e40af;
+  --color-primary-light: #60a5fa;
+  --color-secondary: #10b981; /* Verde */
+  --color-accent: #f59e0b;   /* Amarillo */
+  --color-text: #1f2937;     /* Gris oscuro */
+  --color-background: #ffffff;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --container-max-width: 1200px;
+  --header-height: 64px;
+  --spacing-unit: 16px;
+}
+
+/* ------------------------------------------------------------------
+   RESET Y BASE
+   Asegura que todos los elementos se comporten de forma predecible
+   eliminando márgenes y paddings por defecto y definiendo reglas
+   básicas de box‑sizing. 
+   ------------------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ------------------------------------------------------------------
+   UTILITIES
+   Clases de utilidad para contenedores, flexbox y espaciado.
+   ------------------------------------------------------------------ */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: calc(var(--spacing-unit) * 1);
+}
+
+.mb-8 {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.mt-4 {
+  margin-top: calc(var(--spacing-unit) * 1);
+}
+
+.mt-8 {
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+/* ------------------------------------------------------------------
+   TIPOGRAFÍA
+   Estilos para títulos (h1-h6) y párrafos. Ajusta tamaños y pesos
+   según la jerarquía visual que desees.
+   ------------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-unit);
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+p {
+  margin-bottom: var(--spacing-unit);
+  color: var(--color-text);
+}
+
+/* ------------------------------------------------------------------
+   HEADER
+   Estilos para la cabecera sticky con navegación. Incluye un toggle
+   para la navegación móvil.
+   ------------------------------------------------------------------ */
+header {
+  position: sticky;
+  top: 0;
+  height: var(--header-height);
+  background-color: var(--color-background);
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  z-index: 50;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+nav.desktop {
+  margin-left: auto;
+  display: flex;
+  gap: var(--spacing-unit);
+}
+
+nav.desktop a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+nav.desktop a:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-background);
+}
+
+/* Mobile navigation toggle */
+.mobile-toggle {
+  display: none;
+  margin-left: auto;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------
+   HERO
+   Bloques hero para home, categoría y ficha. Ajusta el espaciado y
+   el fondo según el contexto.
+   ------------------------------------------------------------------ */
+.hero {
+  padding: calc(var(--spacing-unit) * 4) 0;
+  background-color: var(--color-primary-light);
+  color: var(--color-background);
+  text-align: center;
+}
+
+.hero.home {
+  background-image: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary));
+  color: #fff;
+}
+
+.hero h1 {
+  margin-bottom: var(--spacing-unit);
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------------
+   SEARCH BOX
+   Estilos para el cuadro de búsqueda en el hero y las páginas de
+   categoría. 
+   ------------------------------------------------------------------ */
+.search-box {
+  margin-top: calc(var(--spacing-unit) * 2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-unit);
+  justify-content: center;
+}
+
+.search-box input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.search-box select {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.search-box button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-box button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ------------------------------------------------------------------
+   BUTTONS
+   Clases de botones reutilizables: primario, secundario y outline.
+   ------------------------------------------------------------------ */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+}
+
+.btn-secondary:hover {
+  background-color: #0e9e6e;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-background);
+}
+
+/* ------------------------------------------------------------------
+   SECCIONES GENÉRICAS
+   Espaciado vertical para las secciones.
+   ------------------------------------------------------------------ */
+section {
+  padding: calc(var(--spacing-unit) * 4) 0;
+}
+
+/* ------------------------------------------------------------------
+   GRID DE CATEGORÍAS
+   Muestra tarjetas de categorías en forma de cuadrícula.
+   ------------------------------------------------------------------ */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--spacing-unit);
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.category-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: var(--spacing-unit);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-card .icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.category-card .count {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* ------------------------------------------------------------------
+   GRID DE CENTROS (CARD LIST)
+   Tarjetas para cada centro (negocio). Están diseñadas para
+   acomodarse en una cuadrícula responsiva.
+   ------------------------------------------------------------------ */
+.centers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+.center-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.center-card .card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-color: #f3f4f6;
+  background-size: cover;
+  background-position: center;
+}
+
+.center-card .card-content {
+  padding: var(--spacing-unit);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.center-card h3 {
+  font-size: 1.125rem;
+  color: var(--color-primary);
+}
+
+.center-card .meta {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.center-card .rating {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #f59e0b;
+}
+
+.center-card .cta {
+  margin-top: auto;
+}
+
+/* ------------------------------------------------------------------
+   BREADCRUMBS
+   Navegación secundaria para indicar la posición dentro del sitio.
+   ------------------------------------------------------------------ */
+.breadcrumbs {
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-unit);
+}
+
+.breadcrumbs a {
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+/* ------------------------------------------------------------------
+   FILTROS Y SORT BAR
+   Controles para filtrar y ordenar resultados en la página de
+   categorías.
+   ------------------------------------------------------------------ */
+.filters-panel {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-unit);
+}
+
+.filter-chip {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.sort-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-unit);
+}
+
+/* ------------------------------------------------------------------
+   FICHA (PÁGINA DE CENTRO)
+   Estilos específicos para la página de ficha individual.
+   ------------------------------------------------------------------ */
+.ficha-header {
+  padding: calc(var(--spacing-unit) * 3) 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ficha-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ficha-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-unit);
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.ficha-section {
+  margin-top: calc(var(--spacing-unit) * 3);
+}
+
+/* Reviews */
+.reviews {
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.review-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: var(--spacing-unit);
+  margin-bottom: var(--spacing-unit);
+}
+
+/* FAQ accordion */
+.accordion-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.accordion-header {
+  cursor: pointer;
+  padding: var(--spacing-unit);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-content {
+  display: none;
+  padding: var(--spacing-unit);
+  background-color: #f9fafb;
+}
+
+.accordion-item[open] .accordion-content {
+  display: block;
+}
+
+/* Related cards */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+/* ------------------------------------------------------------------
+   CONTENIDO SEO Y TRUST BLOCK
+   Secciones para texto SEO extenso y bloques de confianza.
+   ------------------------------------------------------------------ */
+.seo-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--color-text);
+}
+
+.trust-block {
+  background-color: #f3f4f6;
+  padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------
+   INTENT LINKS
+   Listas de enlaces de intención o búsquedas populares.
+   ------------------------------------------------------------------ */
+.intent-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.intent-links a {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  background-color: #eef2ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------
+   FOOTER
+   Sección inferior del sitio con enlaces y créditos.
+   ------------------------------------------------------------------ */
+footer {
+  background-color: #f3f4f6;
+  padding: calc(var(--spacing-unit) * 2) 0;
+  margin-top: calc(var(--spacing-unit) * 4);
+}
+
+footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+footer p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* ------------------------------------------------------------------
+   TABLES
+   Estilos básicos para tablas comparativas o de precios.
+   ------------------------------------------------------------------ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-unit);
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------
+   STATES
+   Estilos para estados como loading o no results.
+   ------------------------------------------------------------------ */
+.loading,
+.no-results {
+  text-align: center;
+  color: #6b7280;
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+/* ------------------------------------------------------------------
+   RESPONSIVE
+   Breakpoints para adaptarse a pantallas más grandes. Están
+   organizados de menor a mayor.
+   ------------------------------------------------------------------ */
+@media (min-width: 768px) {
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  .mobile-toggle {
+    display: none;
+  }
+  nav.desktop {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-unit);
+  }
+  .hero {
+    padding: calc(var(--spacing-unit) * 6) 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   PRINT STYLES
+   Ajustes para impresión, eliminando colores de fondo innecesarios
+   y asegurando legibilidad.
+   ------------------------------------------------------------------ */
+@media print {
+  header, footer, .mobile-toggle { display: none; }
+  body { color: #000; }
+  a { color: #000; text-decoration: underline; }
+}
+
+/* ------------------------------------------------------------------
+   REDUCED MOTION
+   Respeta las preferencias del usuario para reducir la animación.
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
