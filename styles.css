@@ -184,14 +184,20 @@ nav.desktop a:hover {
    el fondo según el contexto.
    ------------------------------------------------------------------ */
 .hero {
-  padding: calc(var(--spacing-unit) * 5) 0;
-  background-color: var(--color-primary-light);
-  color: var(--color-background);
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-height) + var(--spacing-unit) * 4);
+  padding-bottom: calc(var(--spacing-unit) * 4);
   text-align: center;
 }
 
 .hero.home {
-  background-image: linear-gradient(90deg, #1e3a8a, var(--color-primary));
+  /* Dark hero background resembling sample style */
+  background-color: #080a10;
+  background-image: none;
   color: #fff;
 }
 
@@ -202,6 +208,19 @@ nav.desktop a:hover {
 .hero p {
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* Hero content container overlay (inspired by sample) */
+.hero > .container {
+  position: relative;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse 90% 80% at 50% 45%,
+    rgba(8, 10, 16, 0.45) 0%,
+    transparent 70%
+  );
+  padding: 40px 20px;
+  border-radius: 24px;
 }
 
 /* ------------------------------------------------------------------
@@ -215,22 +234,33 @@ nav.desktop a:hover {
   flex-wrap: wrap;
   gap: var(--spacing-unit);
   justify-content: center;
+  /* Glass effect similar to sample */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 20px;
 }
 
 .search-box input[type="text"] {
   padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
   flex: 1 1 250px;
   min-width: 250px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .search-box select {
   padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
   min-width: 180px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
@@ -248,6 +278,15 @@ nav.desktop a:hover {
 .search-box button:hover {
   background-color: var(--color-primary-dark);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Placeholder colors and select options for glass search box */
+.search-box input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.search-box select option {
+  background: #1a1a2e;
+  color: #fff;
 }
 
 /* ------------------------------------------------------------------
