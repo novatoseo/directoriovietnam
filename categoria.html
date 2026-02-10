@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="vi-vn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh mục | Anh Ngữ Việt Nam</title>
+  <meta name="description" content="Khám phá các trung tâm theo danh mục và áp dụng bộ lọc theo nhu cầu của bạn." id="metaDescription">
+  <link rel="canonical" href="https://example.com/categoria.html" id="canonicalLink">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <script type="application/ld+json" id="schemaJson">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Trung tâm tại Việt Nam",
+    "description": "Danh sách trung tâm tại Việt Nam",
+    "inLanguage": "vi-vn"
+  }
+  </script>
+
+  <style>
+  /* ── CATEGORY PAGE SPECIFIC STYLES ─────────────────────────────── */
+
+  /* Hero - compact vs home hero */
+  .hero.category {
+    min-height: 42vh;
+    padding: calc(var(--header-h) + 48px) 0 56px;
+    background: var(--clr-navy);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-align: left;
+  }
+  .hero.category .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 100% 100% at 30% 60%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 100% 100% at 30% 60%, black 20%, transparent 100%);
+  }
+  .hero.category .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+  }
+  .hero.category .orb-1 {
+    width: 500px; height: 500px;
+    top: -200px; right: -100px;
+    background: radial-gradient(circle, rgba(201,168,76,.12) 0%, transparent 70%);
+  }
+  .hero.category .orb-2 {
+    width: 300px; height: 300px;
+    bottom: -100px; left: 10%;
+    background: radial-gradient(circle, rgba(99,102,241,.1) 0%, transparent 70%);
+  }
+  .hero-category-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    animation: heroReveal .7s var(--ease) both;
+  }
+  @keyframes heroReveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .8rem;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .breadcrumbs a {
+    color: rgba(255,255,255,.55);
+    transition: color .2s;
+  }
+  .breadcrumbs a:hover { color: var(--clr-gold); }
+  .breadcrumbs .sep { color: rgba(255,255,255,.25); }
+  .breadcrumbs .current { color: var(--clr-gold); font-weight: 500; }
+
+  /* Hero category title */
+  .hero-cat-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 12px;
+  }
+  .hero-cat-eyebrow::before {
+    content: '';
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--clr-gold);
+    border-radius: 2px;
+  }
+  .hero.category h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+  .hero.category .cat-intro {
+    font-size: 1rem;
+    color: rgba(255,255,255,.6);
+    max-width: 560px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  /* Category stats bar */
+  .cat-stats-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+  .cat-stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 20px;
+    font-size: .85rem;
+    color: rgba(255,255,255,.6);
+  }
+  .cat-stat strong {
+    font-weight: 700;
+    color: #fff;
+    font-size: .95rem;
+  }
+  .cat-stat-sep {
+    width: 1px; height: 20px;
+    background: rgba(255,255,255,.12);
+    flex-shrink: 0;
+  }
+
+  /* ── FILTERS PANEL ─────────────────────────────────────────────── */
+  .filters-section {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 40;
+    background: var(--clr-bg);
+    border-bottom: 1px solid var(--clr-border);
+    padding: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+  }
+
+  .filters-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    flex-wrap: wrap;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .filter-label {
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--clr-subtle);
+    white-space: nowrap;
+  }
+
+  .filter-input,
+  .filter-select {
+    height: 38px;
+    padding: 0 14px;
+    border: 1.5px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: .88rem;
+    color: var(--clr-text);
+    background: var(--clr-surface);
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+  }
+  .filter-input { min-width: 220px; }
+  .filter-select { min-width: 160px; appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 32px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; background-size: 16px; }
+  .filter-input:focus,
+  .filter-select:focus {
+    border-color: var(--clr-gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,.12);
+  }
+
+  /* Search inside filters */
+  .filter-search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+  }
+  .filter-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px; height: 15px;
+    color: var(--clr-subtle);
+    pointer-events: none;
+  }
+  .filter-search-wrap .filter-input { padding-left: 36px; width: 100%; }
+
+  .filter-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--clr-border);
+    flex-shrink: 0;
+  }
+
+  .btn-filter-apply {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 18px;
+    background: var(--clr-gold);
+    color: var(--clr-navy);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, transform .2s, box-shadow .2s;
+    flex-shrink: 0;
+  }
+  .btn-filter-apply:hover {
+    background: var(--clr-gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(201,168,76,.3);
+  }
+  .btn-filter-apply svg { width: 14px; height: 14px; }
+
+  /* View mode toggle */
+  .view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: 1.5px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    padding: 3px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; height: 30px;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    cursor: pointer;
+    color: var(--clr-subtle);
+    transition: background .2s, color .2s;
+  }
+  .view-btn.active, .view-btn:hover {
+    background: var(--clr-gold);
+    color: var(--clr-navy);
+  }
+  .view-btn svg { width: 14px; height: 14px; }
+
+  /* Active filter chips */
+  .active-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 0 14px;
+  }
+  .active-chips:empty { display: none; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--clr-gold-dark);
+    background: rgba(201,168,76,.1);
+    border: 1px solid rgba(201,168,76,.25);
+    padding: 4px 10px 4px 12px;
+    border-radius: 100px;
+  }
+  .chip-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: rgba(201,168,76,.2);
+    cursor: pointer;
+    color: var(--clr-gold-dark);
+    transition: background .2s;
+    border: none;
+    font-size: .7rem;
+    line-height: 1;
+  }
+  .chip-remove:hover { background: var(--clr-gold); color: var(--clr-navy); }
+
+  /* ── RESULTS SECTION ───────────────────────────────────────────── */
+  .results-section {
+    background: var(--clr-bg);
+    padding: 48px 0 80px;
+  }
+
+  .results-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .results-count {
+    font-size: .9rem;
+    color: var(--clr-muted);
+    font-weight: 500;
+    margin: 0;
+  }
+  .results-count strong {
+    color: var(--clr-text);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  /* List view mode */
+  .centers-grid.list-view {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .centers-grid.list-view .center-card {
+    flex-direction: row;
+    max-height: 160px;
+  }
+  .centers-grid.list-view .card-image {
+    width: 200px;
+    height: auto;
+    min-height: 160px;
+    flex-shrink: 0;
+    border-radius: 0;
+  }
+  .centers-grid.list-view .card-content {
+    padding: 20px 24px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 24px;
+  }
+  .centers-grid.list-view .card-content h3 { width: 100%; }
+  .centers-grid.list-view .card-cta {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    margin-left: auto;
+  }
+
+  /* Load more */
+  .load-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+  }
+  .btn-load-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    background: var(--clr-surface);
+    color: var(--clr-text);
+    border: 1.5px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .25s var(--ease);
+  }
+  .btn-load-more:hover {
+    border-color: var(--clr-gold);
+    color: var(--clr-gold);
+    background: rgba(201,168,76,.04);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-load-more svg { width: 16px; height: 16px; transition: transform .25s var(--ease); }
+  .btn-load-more:hover svg { transform: translateY(2px); }
+
+  /* No results state */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 80px 24px;
+    text-align: center;
+    color: var(--clr-muted);
+  }
+  .empty-state-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+    opacity: .6;
+  }
+  .empty-state h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--clr-text);
+    margin: 0;
+  }
+  .empty-state p { margin: 0; max-width: 360px; }
+
+  /* ── COMPARISON TABLE ──────────────────────────────────────────── */
+  .comparison-section {
+    background: #F5F4F0;
+    padding: 72px 0;
+  }
+
+  .comparison-table {
+    background: var(--clr-surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--clr-border);
+    margin-top: 32px;
+  }
+  .comparison-table thead tr {
+    background: var(--clr-navy);
+  }
+  .comparison-table th {
+    padding: 16px 20px;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    border: none;
+    text-align: left;
+  }
+  .comparison-table th:first-child { color: var(--clr-gold); }
+  .comparison-table td {
+    padding: 16px 20px;
+    font-size: .9rem;
+    border: none;
+    border-bottom: 1px solid var(--clr-border);
+    color: var(--clr-text);
+    vertical-align: middle;
+  }
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+  .comparison-table tbody tr:nth-child(even) { background: #FAFAF8; }
+  .comparison-table tbody tr:hover { background: rgba(201,168,76,.04); }
+  .comparison-table a {
+    color: var(--clr-gold-dark);
+    font-weight: 600;
+    transition: color .2s;
+  }
+  .comparison-table a:hover { color: var(--clr-gold); }
+  .table-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+  }
+  .table-rating .star { color: #F59E0B; }
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    font-size: .72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+  .rank-badge.gold   { background: #F59E0B; color: #fff; }
+  .rank-badge.silver { background: #9CA3AF; color: #fff; }
+  .rank-badge.bronze { background: #CD7F32; color: #fff; }
+  .rank-badge.other  { background: var(--clr-border); color: var(--clr-muted); }
+
+  /* ── RELATED CATEGORIES ────────────────────────────────────────── */
+  .related-section {
+    background: var(--clr-bg);
+    padding: 80px 0;
+  }
+
+  /* ── SEO + FAQ ─────────────────────────────────────────────────── */
+  .seo-cat-section {
+    background: var(--clr-navy);
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .seo-cat-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(201,168,76,.07) 0%, transparent 50%);
+  }
+  .seo-cat-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+  .seo-cat-section .section-label { color: var(--clr-gold); }
+  .seo-cat-section h2 {
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .seo-cat-section p {
+    color: rgba(255,255,255,.6);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .faq-cat-section {
+    background: #F5F4F0;
+    padding: 72px 0;
+  }
+
+  /* Responsive tweaks for category page */
+  @media (max-width: 768px) {
+    .hero.category { min-height: 38vh; text-align: center; }
+    .hero.category .cat-intro { max-width: 100%; }
+    .cat-stats-bar { flex-direction: column; gap: 0; }
+    .cat-stat-sep { width: 60px; height: 1px; }
+
+    .filters-inner { flex-direction: column; align-items: stretch; gap: 10px; }
+    .filter-group { width: 100%; }
+    .filter-search-wrap { max-width: 100%; }
+    .filter-input, .filter-select { width: 100%; }
+    .view-toggle { margin-left: 0; }
+    .btn-filter-apply { width: 100%; justify-content: center; }
+
+    .centers-grid.list-view { grid-template-columns: 1fr; }
+    .centers-grid.list-view .center-card { flex-direction: column; max-height: none; }
+    .centers-grid.list-view .card-image { width: 100%; height: 180px; }
+    .centers-grid.list-view .card-content { flex-direction: column; }
+    .centers-grid.list-view .card-cta { margin-left: 0; }
+
+    .comparison-table { display: block; overflow-x: auto; }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">AN</span>
+        <span class="logo-text">Anh Ngữ <em>Việt Nam</em></span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="about.html">Giới thiệu</a>
+        <a href="add-listing.html">Thêm doanh nghiệp</a>
+        <a href="contact.html" class="nav-cta">Liên hệ</a>
+      </nav>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <a href="about.html">Giới thiệu</a>
+    <a href="add-listing.html">Thêm doanh nghiệp</a>
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+
+  <!-- ===== CATEGORY HERO ===== -->
+  <section class="hero category">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-category-content">
+        <nav id="breadcrumbs" class="breadcrumbs" aria-label="Breadcrumb"></nav>
+        <div class="hero-cat-eyebrow" id="categoryEyebrow">Danh mục</div>
+        <h1 id="categoryTitle">Trung tâm Anh ngữ</h1>
+        <p id="categoryIntro" class="cat-intro">Lọc và khám phá các trung tâm Anh ngữ phù hợp với nhu cầu của bạn.</p>
+        <div id="categoryStats" class="cat-stats-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STICKY FILTERS ===== -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters-inner">
+        <!-- Search -->
+        <div class="filter-search-wrap">
+          <svg class="filter-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" class="filter-input" placeholder="Tìm tên hoặc địa chỉ…" autocomplete="off">
+        </div>
+
+        <div class="filter-divider"></div>
+
+        <!-- Rating filter -->
+        <div class="filter-group">
+          <span class="filter-label">Đánh giá</span>
+          <select id="ratingMin" class="filter-select">
+            <option value="0">Tất cả</option>
+            <option value="4.5">4.5 ★ trở lên</option>
+            <option value="4">4 ★ trở lên</option>
+            <option value="3.5">3.5 ★ trở lên</option>
+            <option value="3">3 ★ trở lên</option>
+          </select>
+        </div>
+
+        <!-- Sort -->
+        <div class="filter-group">
+          <span class="filter-label">Sắp xếp</span>
+          <select id="sortOrder" class="filter-select">
+            <option value="rating">Điểm cao nhất</option>
+            <option value="reviews">Nhiều đánh giá nhất</option>
+            <option value="az">Tên A → Z</option>
+            <option value="za">Tên Z → A</option>
+          </select>
+        </div>
+
+        <!-- Apply -->
+        <button id="applyFilters" class="btn-filter-apply">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 6h18M8 12h8M11 18h2"/></svg>
+          Áp dụng
+        </button>
+
+        <!-- View toggle -->
+        <div class="view-toggle" role="group" aria-label="Chế độ hiển thị">
+          <button class="view-btn active" id="gridViewBtn" title="Lưới" aria-pressed="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="view-btn" id="listViewBtn" title="Danh sách" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Active filter chips -->
+      <div id="activeFilters" class="active-chips"></div>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS ===== -->
+  <section class="results-section">
+    <div class="container">
+      <div class="results-toolbar">
+        <p id="resultsCount" class="results-count"></p>
+      </div>
+      <div id="centersList" class="centers-grid"></div>
+      <div class="load-more-wrap">
+        <button id="loadMore" class="btn-load-more" style="display:none;">
+          Xem thêm
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPARISON TABLE ===== -->
+  <section id="comparisonSection" class="comparison-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Tổng quan</div>
+        <h2 class="section-title">Bảng so sánh<br>top trung tâm</h2>
+      </div>
+      <div style="overflow-x:auto;">
+        <table id="comparisonTable" class="comparison-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Tên trung tâm</th>
+              <th>Điểm đánh giá</th>
+              <th>Số nhận xét</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RELATED CATEGORIES ===== -->
+  <section id="relatedCategoriesSection" class="related-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Khám phá thêm</div>
+        <h2 class="section-title">Danh mục khác</h2>
+      </div>
+      <div id="relatedCategories" class="categories-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== SEO CONTENT ===== -->
+  <section id="seoCategoryContent" class="seo-cat-section" style="display:none;">
+    <div class="container">
+      <div class="seo-cat-inner" id="seoCategoryInner"></div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faqCategory" class="faq-cat-section" style="display:none;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Hỗ trợ</div>
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+      </div>
+      <div class="accordion-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">AN</span>
+            <span class="logo-text">Anh Ngữ <em>Việt Nam</em></span>
+          </a>
+          <p>Cẩm nang của bạn về trung tâm Anh ngữ tại Việt Nam. Thông tin minh bạch, cập nhật thường xuyên.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Điều hướng</h4>
+            <a href="about.html">Giới thiệu</a>
+            <a href="categoria.html">Tất cả trung tâm</a>
+            <a href="add-listing.html">Thêm doanh nghiệp</a>
+            <a href="contact.html">Liên hệ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Pháp lý</h4>
+            <a href="privacy.html">Quyền riêng tư</a>
+            <a href="terms.html">Điều khoản sử dụng</a>
+            <a href="cookies.html">Chính sách cookie</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Anh Ngữ Việt Nam. Mọi quyền được bảo lưu.</p>
+        <p>Được làm với <span aria-label="yêu">❤</span> tại Việt Nam</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ── Category meta content ────────────────────────────────────────
+  const categoryMeta = {
+    "academia-de-ingles": {
+      title: "Trung tâm Anh ngữ tại Việt Nam | Trung tâm tốt nhất",
+      description: "So sánh những trung tâm Anh ngữ tốt nhất tại Việt Nam. Tìm lịch học linh hoạt, giáo viên bản ngữ và mức giá phù hợp.",
+      content: `<div class="section-label">Thông tin</div><h2>Trung tâm Anh ngữ tại Việt Nam</h2><p>Các trung tâm Anh ngữ tại Việt Nam cung cấp nhiều khoá học cho mọi trình độ, từ sơ cấp đến nâng cao. Khi chọn trung tâm, hãy cân nhắc kinh nghiệm giảng dạy của giáo viên, phương pháp, vị trí và đánh giá của học viên.</p><p>Trong danh bạ của chúng tôi bạn sẽ tìm thấy thông tin chi tiết về từng trung tâm, bao gồm điểm đánh giá, số nhận xét, dịch vụ và lịch học.</p>`,
+      faq: [
+        { q: "Làm thế nào để chọn trung tâm Anh ngữ tốt nhất?", a: "So sánh điểm đánh giá, số lượng nhận xét và dịch vụ cung cấp để đưa ra quyết định tốt nhất." },
+        { q: "Các trung tâm có cung cấp lớp học trực tuyến không?", a: "Nhiều trung tâm hiện nay cung cấp khoá học trực tuyến hoặc kết hợp để phù hợp với lịch của bạn." }
+      ]
+    },
+    "academia-de-idiomas": {
+      title: "Trung tâm ngoại ngữ tại Việt Nam | Học nhiều ngôn ngữ",
+      description: "Khám phá các trung tâm ngoại ngữ giảng dạy tiếng Anh và các ngôn ngữ khác tại Việt Nam.",
+      content: `<div class="section-label">Thông tin</div><h2>Trung tâm ngoại ngữ tại Việt Nam</h2><p>Bên cạnh các trung tâm Anh ngữ, Việt Nam có nhiều trung tâm dạy các ngôn ngữ khác như tiếng Pháp, Trung và Nhật. Các trung tâm này cung cấp các khoá học phù hợp với nhiều cấp độ và mục tiêu.</p>`,
+      faq: [
+        { q: "Tôi có thể học những ngôn ngữ nào?", a: "Tuỳ từng trung tâm nhưng thường có tiếng Anh, tiếng Pháp, tiếng Trung và tiếng Nhật." },
+        { q: "Có lớp học cấp tốc không?", a: "Có, nhiều trung tâm có các khoá học cấp tốc dành cho người cần tiến bộ nhanh." }
+      ]
+    }
+  };
+
+  // ── State ────────────────────────────────────────────────────────
+  let allCenters = [];
+  let filteredCenters = [];
+  let displayCount = 0;
+  let categories = [];
+  let isListView = false;
+
+  // ── URL params ───────────────────────────────────────────────────
+  function getParams() {
+    const params = new URLSearchParams(window.location.search);
+    return { kategori: params.get('kategori') || '', search: params.get('search') || '' };
+  }
+
+  // ── Avg rating ───────────────────────────────────────────────────
+  function calcAverageRating(list) {
+    if (!list.length) return 0;
+    return (list.reduce((a, c) => a + (c.rating || 0), 0) / list.length).toFixed(1);
+  }
+
+  // ── Hero ─────────────────────────────────────────────────────────
+  function renderHero(categorySlug, categoryName) {
+    const params = getParams();
+    const titleEl  = document.getElementById('categoryTitle');
+    const eyebrow  = document.getElementById('categoryEyebrow');
+    const introEl  = document.getElementById('categoryIntro');
+    const statsEl  = document.getElementById('categoryStats');
+    const avgRating = calcAverageRating(filteredCenters);
+    const num = filteredCenters.length;
+
+    // Breadcrumbs
+    const bc = document.getElementById('breadcrumbs');
+    bc.innerHTML = `
+      <a href="index.html">Trang chủ</a>
+      <span class="sep">›</span>
+      <a href="categoria.html">Tất cả danh mục</a>
+      ${categoryName ? `<span class="sep">›</span><span class="current">${categoryName}</span>` : ''}
+      ${params.search && !categoryName ? `<span class="sep">›</span><span class="current">Tìm kiếm: "${params.search}"</span>` : ''}
+    `;
+
+    // Title
+    if (params.search && !categoryName) {
+      eyebrow.textContent = 'Kết quả tìm kiếm';
+      titleEl.textContent = `"${params.search}"`;
+      introEl.textContent = `Hiển thị tất cả trung tâm phù hợp với từ khoá của bạn.`;
+      document.title = `Kết quả: "${params.search}" | Anh Ngữ Việt Nam`;
+    } else if (categoryName) {
+      eyebrow.textContent = 'Danh mục';
+      titleEl.textContent = categoryName;
+      introEl.textContent = `Khám phá các trung tâm chuyên về ${categoryName.toLowerCase()} tại Việt Nam.`;
+      document.title = `${categoryName} | Anh Ngữ Việt Nam`;
+    } else {
+      eyebrow.textContent = 'Tất cả danh mục';
+      titleEl.textContent = 'Tất cả trung tâm';
+      introEl.textContent = 'Khám phá toàn bộ danh bạ trung tâm Anh ngữ tại Việt Nam.';
+    }
+
+    // Stats
+    statsEl.innerHTML = `
+      <div class="cat-stat"><strong>${num}</strong> trung tâm</div>
+      ${num > 0 ? `<div class="cat-stat-sep"></div><div class="cat-stat"><strong>${avgRating} ★</strong> đánh giá TB</div>` : ''}
+    `;
+  }
+
+  // ── Active filter chips ──────────────────────────────────────────
+  function renderActiveFilters() {
+    const container = document.getElementById('activeFilters');
+    container.innerHTML = '';
+    const rating = document.getElementById('ratingMin').value;
+    const search = document.getElementById('searchInput').value.trim();
+    const sort   = document.getElementById('sortOrder').value;
+
+    if (search) {
+      addChip(container, `Tìm: "${search}"`, () => {
+        document.getElementById('searchInput').value = '';
+        applyFilterAndSort();
+      });
+    }
+    if (rating > 0) {
+      addChip(container, `${rating}★ trở lên`, () => {
+        document.getElementById('ratingMin').value = '0';
+        applyFilterAndSort();
+      });
+    }
+    if (sort !== 'rating') {
+      const labels = { reviews: 'Nhiều đánh giá', az: 'A→Z', za: 'Z→A' };
+      addChip(container, labels[sort], () => {
+        document.getElementById('sortOrder').value = 'rating';
+        applyFilterAndSort();
+      });
+    }
+  }
+
+  function addChip(container, label, onRemove) {
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    const btn = document.createElement('button');
+    btn.className = 'chip-remove';
+    btn.textContent = '×';
+    btn.addEventListener('click', onRemove);
+    chip.append(label, btn);
+    container.appendChild(chip);
+  }
+
+  // ── Filter + Sort ────────────────────────────────────────────────
+  function applyFilterAndSort() {
+    const params   = getParams();
+    const search   = document.getElementById('searchInput').value.trim().toLowerCase();
+    const ratingMin = parseFloat(document.getElementById('ratingMin').value) || 0;
+    const sortOrder = document.getElementById('sortOrder').value;
+
+    let list = [...allCenters];
+
+    // Category filter
+    if (params.kategori) {
+      list = list.filter(c => c.category_slug === params.kategori || c.categories?.includes(params.kategori));
+    }
+    // Search filter
+    if (search) {
+      list = list.filter(c =>
+        (c.name   || '').toLowerCase().includes(search) ||
+        (c.address || '').toLowerCase().includes(search)
+      );
+    }
+    // Rating filter
+    if (ratingMin > 0) list = list.filter(c => (c.rating || 0) >= ratingMin);
+
+    // Sort
+    list.sort((a, b) => {
+      if (sortOrder === 'rating')   return (b.rating || 0) - (a.rating || 0);
+      if (sortOrder === 'reviews')  return (b.reviews_count || 0) - (a.reviews_count || 0);
+      if (sortOrder === 'az')       return (a.name || '').localeCompare(b.name || '', 'vi');
+      if (sortOrder === 'za')       return (b.name || '').localeCompare(a.name || '', 'vi');
+      return 0;
+    });
+
+    filteredCenters = list;
+    displayCount = 0;
+
+    // Find category name
+    const cat = categories.find(c => c.slug === params.kategori);
+    renderHero(params.kategori, cat ? cat.name : '');
+    renderActiveFilters();
+    renderResults();
+    renderComparisonTable();
+  }
+
+  // ── Results ──────────────────────────────────────────────────────
+  function renderResults() {
+    const list    = document.getElementById('centersList');
+    const countEl = document.getElementById('resultsCount');
+    const PAGE    = 12;
+
+    list.innerHTML = '';
+
+    if (!filteredCenters.length) {
+      list.innerHTML = `
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-state-icon">🔍</div>
+          <h3>Không tìm thấy kết quả</h3>
+          <p>Hãy thử thay đổi bộ lọc hoặc tìm kiếm với từ khoá khác.</p>
+        </div>`;
+      countEl.innerHTML = '';
+      document.getElementById('loadMore').style.display = 'none';
+      return;
+    }
+
+    const toShow = filteredCenters.slice(0, displayCount + PAGE);
+    displayCount = toShow.length;
+
+    toShow.forEach((c, i) => {
+      const card = document.createElement('div');
+      card.className = 'center-card';
+      card.style.animationDelay = `${(i % PAGE) * 0.06}s`;
+      card.style.animation = `fadeUp .4s var(--ease) both`;
+
+      const stars = c.rating ? '★'.repeat(Math.round(c.rating)) + '☆'.repeat(5 - Math.round(c.rating)) : '─';
+      card.innerHTML = `
+        <div class="card-image" ${c.image ? `style="background-image:url(${c.image})"` : ''}>
+          ${c.category ? `<span class="card-badge">${c.category}</span>` : ''}
+        </div>
+        <div class="card-content">
+          <h3>${c.name}</h3>
+          <p class="card-address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${c.address || 'Việt Nam'}
+          </p>
+          <div class="card-rating">
+            <span class="stars">${stars}</span>
+            <span class="score">${c.rating || '─'}</span>
+            <span class="reviews">(${c.reviews_count || 0} nhận xét)</span>
+          </div>
+          <a href="ficha.html?id=${c.slug}" class="card-cta">Xem hồ sơ →</a>
+        </div>`;
+      list.appendChild(card);
+    });
+
+    countEl.innerHTML = `Hiển thị <strong>${displayCount}</strong> trong số <strong>${filteredCenters.length}</strong> trung tâm`;
+
+    const loadBtn = document.getElementById('loadMore');
+    loadBtn.style.display = filteredCenters.length > displayCount ? 'inline-flex' : 'none';
+  }
+
+  document.getElementById('loadMore').addEventListener('click', renderResults);
+
+  // ── Comparison table ─────────────────────────────────────────────
+  function renderComparisonTable() {
+    const tbody = document.querySelector('#comparisonTable tbody');
+    tbody.innerHTML = '';
+    const top5 = filteredCenters.slice(0, 5);
+    if (!top5.length) {
+      document.getElementById('comparisonSection').style.display = 'none';
+      return;
+    }
+    document.getElementById('comparisonSection').style.display = 'block';
+    top5.forEach((c, i) => {
+      const rankClass = ['gold','silver','bronze','other','other'][i];
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><span class="rank-badge ${rankClass}">${i + 1}</span></td>
+        <td><a href="ficha.html?id=${c.slug}">${c.name}</a></td>
+        <td>
+          <div class="table-rating">
+            <span class="star">★</span>
+            <strong>${c.rating || '─'}</strong>
+          </div>
+        </td>
+        <td>${c.reviews_count ? c.reviews_count.toLocaleString('vi-VN') : '─'}</td>
+        <td><a href="ficha.html?id=${c.slug}" class="btn btn-ghost" style="padding:6px 14px;font-size:.8rem;">Xem →</a></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ── Related categories ───────────────────────────────────────────
+  function renderRelatedCategories(currentSlug) {
+    const container = document.getElementById('relatedCategories');
+    container.innerHTML = '';
+    categories.filter(cat => cat.slug !== currentSlug).forEach((cat, i) => {
+      const card = document.createElement('div');
+      card.className = 'category-card';
+      card.style.animationDelay = `${i * 0.07}s`;
+      card.innerHTML = `
+        <div class="cat-icon">${cat.icon || '📚'}</div>
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-count">${cat.count} trung tâm</div>
+        <div class="cat-arrow">→</div>`;
+      card.addEventListener('click', () => { window.location.href = `categoria.html?kategori=${cat.slug}`; });
+      container.appendChild(card);
+    });
+  }
+
+  // ── SEO + FAQ content ────────────────────────────────────────────
+  function renderMetaContent(categorySlug) {
+    const seoSection = document.getElementById('seoCategoryContent');
+    const faqSection = document.getElementById('faqCategory');
+    const meta = categoryMeta[categorySlug];
+
+    if (meta) {
+      document.title = meta.title;
+      document.getElementById('metaDescription').setAttribute('content', meta.description);
+      const schema = { "@context":"https://schema.org","@type":"CollectionPage","name":meta.title,"description":meta.description,"inLanguage":"vi-vn" };
+      document.getElementById('schemaJson').textContent = JSON.stringify(schema);
+
+      // SEO
+      document.getElementById('seoCategoryInner').innerHTML = meta.content;
+      seoSection.style.display = 'block';
+
+      // FAQ
+      const faqList = document.getElementById('faqList');
+      faqList.innerHTML = '';
+      meta.faq.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'accordion-item';
+        div.innerHTML = `
+          <button class="accordion-header">
+            <span>${item.q}</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content"><p>${item.a}</p></div>`;
+        faqList.appendChild(div);
+      });
+      faqSection.style.display = 'block';
+      // Re-bind accordion
+      bindAccordions();
+    } else {
+      seoSection.style.display = 'none';
+      faqSection.style.display = 'none';
+    }
+  }
+
+  // ── Accordion ────────────────────────────────────────────────────
+  function bindAccordions() {
+    document.querySelectorAll('.accordion-header').forEach(btn => {
+      btn.removeEventListener('click', accordionHandler);
+      btn.addEventListener('click', accordionHandler);
+    });
+  }
+  function accordionHandler() {
+    const item = this.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Header scroll ────────────────────────────────────────────────
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Mobile nav ───────────────────────────────────────────────────
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('mobileToggle');
+    const open = nav.classList.toggle('open');
+    btn.classList.toggle('active', open);
+    nav.setAttribute('aria-hidden', String(!open));
+  });
+
+  // ── View toggle ──────────────────────────────────────────────────
+  document.getElementById('gridViewBtn').addEventListener('click', () => {
+    isListView = false;
+    document.getElementById('centersList').classList.remove('list-view');
+    document.getElementById('gridViewBtn').classList.add('active');
+    document.getElementById('listViewBtn').classList.remove('active');
+    document.getElementById('gridViewBtn').setAttribute('aria-pressed', 'true');
+    document.getElementById('listViewBtn').setAttribute('aria-pressed', 'false');
+  });
+  document.getElementById('listViewBtn').addEventListener('click', () => {
+    isListView = true;
+    document.getElementById('centersList').classList.add('list-view');
+    document.getElementById('listViewBtn').classList.add('active');
+    document.getElementById('gridViewBtn').classList.remove('active');
+    document.getElementById('listViewBtn').setAttribute('aria-pressed', 'true');
+    document.getElementById('gridViewBtn').setAttribute('aria-pressed', 'false');
+  });
+
+  // ── Filter apply ─────────────────────────────────────────────────
+  document.getElementById('applyFilters').addEventListener('click', () => {
+    const params = getParams();
+    const newParams = new URLSearchParams();
+    const searchVal = document.getElementById('searchInput').value.trim();
+    if (params.kategori) newParams.set('kategori', params.kategori);
+    if (searchVal) newParams.set('search', searchVal);
+    window.location.search = newParams.toString();
+  });
+
+  document.getElementById('searchInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('applyFilters').click();
+  });
+  document.getElementById('ratingMin').addEventListener('change', applyFilterAndSort);
+  document.getElementById('sortOrder').addEventListener('change', applyFilterAndSort);
+
+  // ── Init ─────────────────────────────────────────────────────────
+  async function init() {
+    try {
+      const res  = await fetch('data.json');
+      const data = await res.json();
+      categories = data.categories;
+      allCenters = data.centers;
+      const params = getParams();
+      if (params.search) document.getElementById('searchInput').value = params.search;
+      applyFilterAndSort();
+      renderRelatedCategories(params.kategori);
+      renderMetaContent(params.kategori);
+    } catch {
+      loadDemoData();
+    }
+  }
+
+  function loadDemoData() {
+    categories = [
+      { icon: '🎓', name: 'IELTS / TOEFL', count: 24, slug: 'ielts' },
+      { icon: '💼', name: 'Tiếng Anh giao tiếp', count: 38, slug: 'giao-tiep' },
+      { icon: '👶', name: 'Tiếng Anh trẻ em', count: 19, slug: 'tre-em' },
+      { icon: '💻', name: 'Học online', count: 15, slug: 'online' },
+      { icon: '🏢', name: 'Tiếng Anh doanh nghiệp', count: 11, slug: 'doanh-nghiep' },
+      { icon: '📝', name: 'TOEIC', count: 22, slug: 'toeic' },
+    ];
+    allCenters = [
+      { name: 'Wall Street English', address: 'Hà Nội', rating: 4.8, reviews_count: 342, slug: 'wall-street', category: 'Giao tiếp' },
+      { name: 'Apollo English', address: 'TP. Hồ Chí Minh', rating: 4.6, reviews_count: 289, slug: 'apollo', category: 'Trẻ em' },
+      { name: 'ILA Vietnam', address: 'Toàn quốc', rating: 4.7, reviews_count: 415, slug: 'ila', category: 'IELTS' },
+      { name: 'British Council', address: 'Hà Nội & HCM', rating: 4.9, reviews_count: 521, slug: 'british-council', category: 'IELTS' },
+      { name: 'YOLA', address: 'TP. Hồ Chí Minh', rating: 4.5, reviews_count: 198, slug: 'yola', category: 'Trẻ em' },
+      { name: 'ZIM Academy', address: 'Toàn quốc', rating: 4.7, reviews_count: 303, slug: 'zim', category: 'TOEIC' },
+      { name: 'Language Link', address: 'Hà Nội', rating: 4.4, reviews_count: 176, slug: 'language-link', category: 'Giao tiếp' },
+      { name: 'VUS', address: 'TP. Hồ Chí Minh', rating: 4.5, reviews_count: 412, slug: 'vus', category: 'Trẻ em' },
+    ];
+    const params = getParams();
+    if (params.search) document.getElementById('searchInput').value = params.search;
+    applyFilterAndSort();
+    renderRelatedCategories(params.kategori);
+  }
+
+  init();
+  </script>
+</body>
+</html>
