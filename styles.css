@@ -21,9 +21,9 @@
   --color-secondary: #10b981; /* Verde */
   --color-accent: #f59e0b;   /* Amarillo */
   --color-text: #1f2937;     /* Gris oscuro */
-  --color-background: #ffffff;
+  --color-background: #f9fafb;
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --container-max-width: 1200px;
+  --container-max-width: 1280px;
   --header-height: 64px;
   --spacing-unit: 16px;
 }
@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
+h2 { font-size: 1.625rem; }
 h3 { font-size: 1.25rem; }
 h4 { font-size: 1.125rem; }
 h5 { font-size: 1rem; }
@@ -148,7 +148,7 @@ header {
 
 header .logo {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--color-primary);
 }
 
@@ -159,14 +159,15 @@ nav.desktop {
 }
 
 nav.desktop a {
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 nav.desktop a:hover {
   background-color: var(--color-primary-light);
   color: var(--color-background);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 /* Mobile navigation toggle */
@@ -183,14 +184,14 @@ nav.desktop a:hover {
    el fondo según el contexto.
    ------------------------------------------------------------------ */
 .hero {
-  padding: calc(var(--spacing-unit) * 4) 0;
+  padding: calc(var(--spacing-unit) * 5) 0;
   background-color: var(--color-primary-light);
   color: var(--color-background);
   text-align: center;
 }
 
 .hero.home {
-  background-image: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary));
+  background-image: linear-gradient(90deg, #1e3a8a, var(--color-primary));
   color: #fff;
 }
 
@@ -217,32 +218,36 @@ nav.desktop a:hover {
 }
 
 .search-box input[type="text"] {
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #d1d5db;
-  border-radius: 4px;
-  flex: 1 1 200px;
-  min-width: 200px;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  min-width: 250px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .search-box select {
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #d1d5db;
-  border-radius: 4px;
-  min-width: 150px;
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .search-box button {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: var(--color-primary);
   color: var(--color-background);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .search-box button:hover {
   background-color: var(--color-primary-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 /* ------------------------------------------------------------------
@@ -307,17 +312,18 @@ section {
 }
 
 .category-card {
-  background-color: #f9fafb;
+  background-color: #ffffff;
   border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  padding: var(--spacing-unit);
+  border-radius: 8px;
+  padding: calc(var(--spacing-unit) * 1.5);
   text-align: center;
-  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .category-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .category-card .icon {
@@ -343,11 +349,13 @@ section {
 
 .center-card {
   border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .center-card .card-image {
@@ -385,6 +393,11 @@ section {
 
 .center-card .cta {
   margin-top: auto;
+}
+
+.center-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* ------------------------------------------------------------------
@@ -590,8 +603,8 @@ th {
    organizados de menor a mayor.
    ------------------------------------------------------------------ */
 @media (min-width: 768px) {
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.75rem; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
   .mobile-toggle {
     display: none;
   }
