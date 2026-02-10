@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi-vn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    Título optimizado para CTR: incluye la palabra clave principal (academias de inglés),
+    la ciudad/país y un gancho de valor. Ajusta el título cuando el proyecto
+    tenga un dominio definitivo.
+  -->
+  <title>Anh Ngữ Việt Nam | Danh bạ trung tâm Anh ngữ 2026</title>
+  <!--
+    Meta description orientada a buscadores: resume la propuesta de valor,
+    beneficios y un CTA implícito.
+  -->
+  <meta name="description" content="Khám phá hơn 100 trung tâm Anh ngữ tại Việt Nam. So sánh điểm đánh giá, đọc nhận xét và tìm trường phù hợp nhất cho bạn.">
+  <!-- Canonical URL: actualizar una vez definido el dominio -->
+  <link rel="canonical" href="https://example.com/">
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Schema.org para WebSite con SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Anh Ngữ Việt Nam",
+    "description": "Danh bạ trung tâm Anh ngữ tại Việt Nam",
+    "url": "https://example.com/",
+    "inLanguage": "vi-vn",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://example.com/categoria.html?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header principal con logo y navegación -->
+  <header>
+    <div class="container flex flex-between">
+      <a href="index.html" class="logo">Anh Ngữ</a>
+      <nav class="desktop">
+        <a href="about.html">Giới thiệu</a>
+        <a href="add-listing.html">Thêm doanh nghiệp</a>
+        <a href="contact.html">Liên hệ</a>
+      </nav>
+      <div class="mobile-toggle" id="mobileToggle">☰</div>
+    </div>
+  </header>
+  <!-- Navegación móvil (oculta por defecto) -->
+  <nav id="mobileNav" class="mobile-nav" style="display: none;">
+    <a href="about.html">Giới thiệu</a>
+    <a href="add-listing.html">Thêm doanh nghiệp</a>
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+
+  <!-- Hero principal -->
+  <section class="hero home">
+    <div class="container">
+      <h1>Trung tâm Anh ngữ tại Việt Nam</h1>
+      <p>Tìm trung tâm hoàn hảo để học tiếng Anh ở thành phố của bạn. Xem điểm đánh giá, nhận xét và dịch vụ.</p>
+      <!-- Estadísticas (se actualizarán por JS) -->
+      <div id="stats" class="mt-4 mb-4"></div>
+      <!-- Buscador -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Tìm theo tên hoặc địa chỉ">
+        <select id="categorySelect">
+          <option value="">Tất cả danh mục</option>
+        </select>
+        <button id="searchButton">Tìm kiếm</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de categorías -->
+  <section id="categoriesSection">
+    <div class="container">
+      <h2>Danh mục</h2>
+      <div id="categoriesGrid" class="categories-grid"></div>
+    </div>
+  </section>
+
+  <!-- Sección de top centros -->
+  <section id="topCentersSection">
+    <div class="container">
+      <h2>Trung tâm hàng đầu</h2>
+      <div id="centersGrid" class="centers-grid"></div>
+      <a href="categoria.html" id="verTodos" class="btn btn-primary mt-4">Xem tất cả</a>
+    </div>
+  </section>
+
+  <!-- Trust block -->
+  <section class="trust-block">
+    <div class="container">
+      <h2>Cách chúng tôi thu thập dữ liệu</h2>
+      <p>Dữ liệu đến từ các nguồn công khai và được cập nhật thường xuyên để cung cấp thông tin chính xác và độc lập.</p>
+      <p>Cập nhật lần cuối: 10/02/2026</p>
+    </div>
+  </section>
+
+  <!-- Contenido SEO -->
+  <section class="seo-content">
+    <h2>Hướng dẫn chọn trung tâm Anh ngữ</h2>
+    <p>Việt Nam có rất nhiều trung tâm Anh ngữ. Để chọn lựa tốt nhất, hãy cân nhắc vị trí, chất lượng giáo viên, chứng chỉ, lịch học và chi phí. Trong hướng dẫn này bạn sẽ tìm thấy những lời khuyên hữu ích.</p>
+    <!-- Bạn có thể bổ sung thêm nội dung với H3 và danh sách tại đây -->
+  </section>
+
+  <!-- Preguntas frecuentes -->
+  <section class="faq">
+    <div class="container">
+      <h2>Câu hỏi thường gặp</h2>
+      <div class="accordion-item">
+        <div class="accordion-header">Các trung tâm được chọn như thế nào?</div>
+        <div class="accordion-content">Các trung tâm được lấy từ nguồn dữ liệu công khai và được sắp xếp theo điểm đánh giá và số lượng nhận xét.</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header">Thông tin được cập nhật thường xuyên ra sao?</div>
+        <div class="accordion-content">Chúng tôi cập nhật dữ liệu hàng tháng để bổ sung trung tâm mới và cập nhật điểm số.</div>
+      </div>
+      <!-- Thêm câu hỏi khác nếu cần -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Anh Ngữ Việt Nam</h4>
+        <p>Cẩm nang của bạn về trung tâm Anh ngữ tại Việt Nam.</p>
+      </div>
+      <div>
+        <h4>Liên kết nhanh</h4>
+        <p><a href="about.html">Giới thiệu</a></p>
+        <p><a href="add-listing.html">Thêm doanh nghiệp</a></p>
+        <p><a href="contact.html">Liên hệ</a></p>
+        <p><a href="privacy.html">Quyền riêng tư</a></p>
+      </div>
+    </div>
+    <div class="container">
+      <p>&copy; 2026 Anh Ngữ Việt Nam. Mọi quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <!-- Script de carga de datos y renderizado -->
+  <script>
+  // Función utilitaria para crear elementos y asignar clases/atributos
+  function createEl(tag, options = {}) {
+    const el = document.createElement(tag);
+    if (options.class) el.className = options.class;
+    if (options.text) el.textContent = options.text;
+    if (options.html) el.innerHTML = options.html;
+    return el;
+  }
+
+  // Cargar data.json y renderizar categorías y top centros
+  async function init() {
+    try {
+      const res = await fetch('data.json');
+      const data = await res.json();
+      renderStats(data);
+      renderCategories(data.categories);
+      renderTopCenters(data.centers);
+      populateCategorySelect(data.categories);
+    } catch (err) {
+      console.error('Error al cargar data.json', err);
+    }
+  }
+
+  function renderStats(data) {
+    const statsEl = document.getElementById('stats');
+    const numCenters = data.centers.length;
+    const numCategories = data.categories.length;
+    // Texto en vietnamita: "trung tâm" (centros) y "danh mục" (categorías)
+    statsEl.innerHTML = `<p><strong>${numCenters}</strong> trung tâm được liệt kê trong <strong>${numCategories}</strong> danh mục</p>`;
+  }
+
+  function renderCategories(categories) {
+    const grid = document.getElementById('categoriesGrid');
+    categories.forEach(cat => {
+      const card = createEl('div', { class: 'category-card' });
+      const icon = createEl('div', { class: 'icon', text: cat.icon || '📍' });
+      const name = createEl('div', { text: cat.name });
+      const count = createEl('div', { class: 'count', text: `${cat.count} trung tâm` });
+      card.appendChild(icon);
+      card.appendChild(name);
+      card.appendChild(count);
+      card.addEventListener('click', () => {
+        window.location.href = `categoria.html?kategori=${cat.slug}`;
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  function renderTopCenters(centers) {
+    const grid = document.getElementById('centersGrid');
+    // Tomar los 6 primeros centros
+    const top = centers.slice(0, 6);
+    top.forEach(center => {
+      const card = createEl('div', { class: 'center-card' });
+      // Imagen (placeholder de momento)
+      const img = createEl('div', { class: 'card-image' });
+      // Si hubiera una URL de imagen, podría usarse como fondo
+      if (center.image) {
+        img.style.backgroundImage = `url(${center.image})`;
+      }
+      const content = createEl('div', { class: 'card-content' });
+      const h3 = createEl('h3', { text: center.name });
+      const meta = createEl('div', { class: 'meta', text: `${center.address || ''}` });
+      const rating = createEl('div', { class: 'rating', html: `${center.rating || '–'} ★ (${center.reviews_count || 0})` });
+      const cta = createEl('div', { class: 'cta' });
+      const btn = createEl('a', { class: 'btn btn-outline', text: 'Xem hồ sơ' });
+      btn.href = `ficha.html?id=${center.slug}`;
+      cta.appendChild(btn);
+      content.appendChild(h3);
+      content.appendChild(meta);
+      content.appendChild(rating);
+      content.appendChild(cta);
+      card.appendChild(img);
+      card.appendChild(content);
+      grid.appendChild(card);
+    });
+  }
+
+  // Rellenar el select de categorías en el buscador
+  function populateCategorySelect(categories) {
+    const select = document.getElementById('categorySelect');
+    categories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.slug;
+      opt.textContent = cat.name;
+      select.appendChild(opt);
+    });
+  }
+
+  // Evento de búsqueda (ejemplo simple)
+  document.getElementById('searchButton').addEventListener('click', () => {
+    const term = document.getElementById('searchInput').value.trim();
+    const categoria = document.getElementById('categorySelect').value;
+    // Redirigir a la página de categoría con parámetros de búsqueda
+    const params = new URLSearchParams();
+    if (categoria) params.set('kategori', categoria);
+    if (term) params.set('search', term);
+    window.location.href = `categoria.html?${params.toString()}`;
+  });
+
+  // Toggle navegación móvil
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    const nav = document.getElementById('mobileNav');
+    nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Inicializar
+  init();
+  </script>
+</body>
+</html>
