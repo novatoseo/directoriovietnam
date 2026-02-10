@@ -508,8 +508,8 @@
     const section = document.getElementById('relatedCentersSection');
     const container = document.getElementById('relatedCenters');
     container.innerHTML = '';
-    // Filtrar por misma categoría principal
-    const related = centers.filter(c => c.category === center.category && c.slug !== center.slug);
+    // Filtrar por misma categoría utilizando el slug de categoría
+    const related = centers.filter(c => c.category_slug === center.category_slug && c.slug !== center.slug);
     if (!related.length) {
       section.style.display = 'none';
       return;
@@ -611,10 +611,20 @@
       const id = getCenterId();
       const center = centers.find(c => c.slug === id);
       if (!center) {
-        alert('Không tìm thấy trung tâm.');
+        // Si no se encuentra el centro, mostrar mensaje genérico
+        document.title = 'Trung tâm không tồn tại | Anh Ngữ Việt Nam';
+        document.getElementById('centerName').textContent = 'Trung tâm không tồn tại';
+        document.getElementById('centerIntro').textContent = 'Chúng tôi không tìm thấy thông tin cho trung tâm này.';
+        document.getElementById('centerStats').innerHTML = '';
+        document.getElementById('centerHeroActions').innerHTML = '';
+        document.getElementById('centerMain').innerHTML = '<p>Trung tâm không tồn tại hoặc slug không hợp lệ. Hãy quay lại danh sách và chọn một trung tâm.</p>';
+        // Ocultar secciones de lateral, relacionados y FAQ
+        document.getElementById('centerSide').style.display = 'none';
+        document.getElementById('relatedCentersSection').style.display = 'none';
+        document.getElementById('faqCenterSection').style.display = 'none';
         return;
       }
-      const categoryObj = categories.find(c => c.slug === center.category);
+      const categoryObj = categories.find(c => c.slug === center.category_slug);
       // Actualizar título y metadatos
       document.title = `${center.name} | Anh Ngữ Việt Nam`;
       document.getElementById('metaDescription').setAttribute('content', `${center.name} tại Việt Nam. Địa chỉ: ${center.address || ''}. Đánh giá ${center.rating || ''} với ${center.reviews_count || 0} nhận xét.`);
