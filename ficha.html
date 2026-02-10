@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="vi-vn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết trung tâm | Anh Ngữ Việt Nam</title>
+  <meta name="description" content="Thông tin chi tiết về trung tâm Anh ngữ." id="metaDescription">
+  <link rel="canonical" href="https://example.com/ficha.html" id="canonicalLink">
+  <!-- Estilos y tipografía -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <!-- Schema.org LocalBusiness (actualizado por JS) -->
+  <script type="application/ld+json" id="schemaJson">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Trung tâm",
+    "description": "Chi tiết trung tâm",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Việt Nam"
+    },
+    "telephone": ""
+  }
+  </script>
+  <!-- Estilos específicos para la ficha -->
+  <style>
+  /* Contenedor de detalles de centro */
+  .section-center-details {
+    background: var(--clr-bg);
+    padding: 80px 0;
+  }
+  .center-details-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+  }
+  .center-main, .center-side {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 32px;
+  }
+  .center-main h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--clr-text);
+  }
+  .center-main .section-block {
+    margin-bottom: 32px;
+  }
+  .center-main .section-block h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--clr-text);
+  }
+  .center-main .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .center-main .chips span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--clr-gold-dark);
+    background: rgba(201,168,76,.1);
+    border: 1px solid rgba(201,168,76,.25);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  /* Lado derecho con contacto y mapa */
+  .center-side h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: var(--clr-text);
+  }
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    font-size: .9rem;
+    color: var(--clr-text);
+  }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .contact-list svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--clr-gold);
+    margin-top: 2px;
+  }
+  .center-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .center-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .85rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all .2s var(--ease);
+    text-decoration: none;
+  }
+  .center-actions a.btn-call {
+    background: var(--clr-gold);
+    color: var(--clr-navy);
+  }
+  .center-actions a.btn-call:hover {
+    background: var(--clr-gold-light);
+  }
+  .center-actions a.btn-website {
+    background: transparent;
+    border: 1.5px solid var(--clr-gold);
+    color: var(--clr-gold);
+  }
+  .center-actions a.btn-website:hover {
+    background: var(--clr-gold);
+    color: var(--clr-navy);
+  }
+  .center-actions a.btn-directions {
+    background: transparent;
+    border: 1.5px solid var(--clr-border);
+    color: var(--clr-text);
+  }
+  .center-actions a.btn-directions:hover {
+    border-color: var(--clr-gold);
+    color: var(--clr-gold);
+  }
+  /* Responsivo */
+  @media (max-width: 1024px) {
+    .center-details-grid {
+      grid-template-columns: 1fr;
+    }
+    .center-side {
+      margin-top: 40px;
+    }
+  }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">AN</span>
+        <span class="logo-text">Anh Ngữ <em>Việt Nam</em></span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="about.html">Giới thiệu</a>
+        <a href="add-listing.html">Thêm doanh nghiệp</a>
+        <a href="contact.html" class="nav-cta">Liên hệ</a>
+      </nav>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- Navegación móvil -->
+  <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <a href="about.html">Giới thiệu</a>
+    <a href="add-listing.html">Thêm doanh nghiệp</a>
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+
+  <main>
+    <!-- Hero del centro -->
+    <section class="hero category" id="centerHero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+      <div class="container hero-category-content">
+        <div id="breadcrumbs" class="breadcrumbs"></div>
+        <div class="hero-cat-eyebrow" id="categoryEyebrow"></div>
+        <h1 id="centerName">Trung tâm</h1>
+        <p class="cat-intro" id="centerIntro"></p>
+        <div id="centerStats" class="cat-stats-bar"></div>
+        <div id="centerHeroActions" class="center-actions"></div>
+      </div>
+    </section>
+
+    <!-- Sección de detalles -->
+    <section class="section-center-details">
+      <div class="container">
+        <div class="center-details-grid">
+          <div class="center-main" id="centerMain">
+            <!-- Contenido principal se renderiza dinámicamente -->
+          </div>
+          <aside class="center-side" id="centerSide">
+            <!-- Información lateral del centro -->
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centros relacionados -->
+    <section id="relatedCentersSection" class="section-centers" style="display:none;">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <div class="section-label">Liên quan</div>
+            <h2 class="section-title">Trung tâm tương tự</h2>
+          </div>
+        </div>
+        <div id="relatedCenters" class="centers-grid"></div>
+      </div>
+    </section>
+
+    <!-- FAQ específico del centro -->
+    <section id="faqCenterSection" class="faq" style="display:none;">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Hỗ trợ</div>
+          <h2 class="section-title">Câu hỏi thường gặp</h2>
+        </div>
+        <div class="accordion-list" id="faqList"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">AN</span>
+            <span class="logo-text">Anh Ngữ <em>Việt Nam</em></span>
+          </a>
+          <p>Cẩm nang của bạn về trung tâm Anh ngữ tại Việt Nam. Thông tin minh bạch, cập nhật thường xuyên.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Điều hướng</h4>
+            <a href="about.html">Giới thiệu</a>
+            <a href="categoria.html">Tất cả trung tâm</a>
+            <a href="add-listing.html">Thêm doanh nghiệp</a>
+            <a href="contact.html">Liên hệ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Pháp lý</h4>
+            <a href="privacy.html">Quyền riêng tư</a>
+            <a href="#">Điều khoản sử dụng</a>
+            <a href="#">Chính sách cookie</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Anh Ngữ Việt Nam. Mọi quyền được bảo lưu.</p>
+        <p>Được làm với <span aria-label="yêu">❤</span> tại Việt Nam</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts dinámicos -->
+  <script>
+  // ── Utilities ─────────────────────────────────────────
+  function createEl(tag, opts = {}) {
+    const el = document.createElement(tag);
+    if (opts.class) el.className = opts.class;
+    if (opts.text) el.textContent = opts.text;
+    if (opts.html) el.innerHTML = opts.html;
+    return el;
+  }
+
+  // Manejar scroll para header (same as index)
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Navegación móvil
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  mobileToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    mobileToggle.classList.toggle('active', open);
+    mobileNav.setAttribute('aria-hidden', String(!open));
+  });
+
+  // Obtener parámetro id (slug del centro)
+  function getCenterId() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id') || '';
+  }
+
+  // Renderizar migas de pan
+  function renderBreadcrumbs(center, category) {
+    const bc = document.getElementById('breadcrumbs');
+    bc.innerHTML = '';
+    // Enlace a inicio
+    const homeLink = createEl('a', { text: 'Trang chủ' });
+    homeLink.href = 'index.html';
+    bc.appendChild(homeLink);
+    // Separador
+    const sep1 = createEl('span', { class: 'sep', text: '>' });
+    bc.appendChild(sep1);
+    if (category) {
+      const catLink = createEl('a', { text: category.name });
+      catLink.href = `categoria.html?kategori=${category.slug}`;
+      bc.appendChild(catLink);
+      const sep2 = createEl('span', { class: 'sep', text: '>' });
+      bc.appendChild(sep2);
+    }
+    // Centro actual
+    const centerSpan = createEl('span', { class: 'current', text: center.name });
+    bc.appendChild(centerSpan);
+  }
+
+  // Renderizar la cabecera del centro (hero)
+  function renderHero(center, category) {
+    document.getElementById('centerName').textContent = center.name;
+    // Eyebrow with category name
+    const eyebrow = document.getElementById('categoryEyebrow');
+    eyebrow.textContent = category ? category.name : 'Trung tâm';
+    // Intro or short description
+    const intro = document.getElementById('centerIntro');
+    intro.textContent = center.summary || center.description || 'Thông tin chi tiết về trung tâm.';
+    // Stats bar: rating y reseñas
+    const statsEl = document.getElementById('centerStats');
+    const rating = center.rating ? center.rating.toFixed(1) : '–';
+    const reviews = center.reviews_count || 0;
+    statsEl.innerHTML = `
+      <div class="cat-stat"><strong>${rating}</strong> / 5 ★</div>
+      <div class="cat-stat-sep"></div>
+      <div class="cat-stat"><strong>${reviews}</strong> nhận xét</div>
+      <div class="cat-stat-sep"></div>
+      <div class="cat-stat"><strong>${center.category_primary || ''}</strong></div>
+    `;
+    // Quick actions on hero
+    const actions = document.getElementById('centerHeroActions');
+    actions.innerHTML = '';
+    if (center.phone) {
+      const btnCall = createEl('a', { class: 'btn-call', text: 'Gọi' });
+      btnCall.href = `tel:${center.phone.replace(/\s+/g, '')}`;
+      actions.appendChild(btnCall);
+    }
+    if (center.website) {
+      const btnWeb = createEl('a', { class: 'btn-website', text: 'Trang web' });
+      btnWeb.href = center.website.startsWith('http') ? center.website : 'http://' + center.website;
+      btnWeb.target = '_blank';
+      btnWeb.rel = 'noopener noreferrer';
+      actions.appendChild(btnWeb);
+    }
+    if (center.geo && center.geo.lat && center.geo.lng) {
+      const btnDir = createEl('a', { class: 'btn-directions', text: 'Chỉ đường' });
+      const lat = center.geo.lat;
+      const lng = center.geo.lng;
+      btnDir.href = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+      btnDir.target = '_blank';
+      actions.appendChild(btnDir);
+    }
+  }
+
+  // Renderizar contenido principal (izquierda)
+  function renderMainContent(center) {
+    const main = document.getElementById('centerMain');
+    main.innerHTML = '';
+    // Título sección
+    const title = createEl('h3', { text: 'Giới thiệu' });
+    main.appendChild(title);
+    const desc = createEl('p');
+    desc.innerHTML = center.description || 'Chúng tôi hiện chưa có mô tả chi tiết về trung tâm này.';
+    main.appendChild(desc);
+    // Servicios / Dịch vụ
+    if (center.services && center.services.length) {
+      const block = createEl('div', { class: 'section-block' });
+      const h4 = createEl('h4', { text: 'Dịch vụ' });
+      block.appendChild(h4);
+      const chips = createEl('div', { class: 'chips' });
+      center.services.forEach(s => {
+        const chip = createEl('span', { text: s });
+        chips.appendChild(chip);
+      });
+      block.appendChild(chips);
+      main.appendChild(block);
+    }
+    // Instalaciones / Tiện ích
+    if (center.facilities && center.facilities.length) {
+      const block = createEl('div', { class: 'section-block' });
+      const h4 = createEl('h4', { text: 'Tiện ích' });
+      block.appendChild(h4);
+      const chips = createEl('div', { class: 'chips' });
+      center.facilities.forEach(f => {
+        const chip = createEl('span', { text: f });
+        chips.appendChild(chip);
+      });
+      block.appendChild(chips);
+      main.appendChild(block);
+    }
+    // Hoạt động / Activities
+    if (center.activities && center.activities.length) {
+      const block = createEl('div', { class: 'section-block' });
+      const h4 = createEl('h4', { text: 'Hoạt động' });
+      block.appendChild(h4);
+      const chips = createEl('div', { class: 'chips' });
+      center.activities.forEach(a => {
+        const chip = createEl('span', { text: a });
+        chips.appendChild(chip);
+      });
+      block.appendChild(chips);
+      main.appendChild(block);
+    }
+    // Giá / Prices
+    if (center.prices) {
+      const block = createEl('div', { class: 'section-block' });
+      const h4 = createEl('h4', { text: 'Giá' });
+      block.appendChild(h4);
+      const p = createEl('p', { text: center.prices });
+      block.appendChild(p);
+      main.appendChild(block);
+    }
+    // Reviews / Nhận xét
+    if (center.reviews && center.reviews.length) {
+      const block = createEl('div', { class: 'section-block' });
+      const h4 = createEl('h4', { text: 'Nhận xét' });
+      block.appendChild(h4);
+      // Mostrar las 3 primeras reseñas
+      center.reviews.slice(0, 3).forEach(rev => {
+        const review = createEl('div', { class: 'review' });
+        const name = createEl('strong', { text: rev.author_name || 'Người dùng' });
+        const text = createEl('p', { text: rev.text || '' });
+        const rating = createEl('div', { class: 'stars', text: '★'.repeat(Math.round(rev.rating || 0)) });
+        review.appendChild(name);
+        review.appendChild(rating);
+        review.appendChild(text);
+        block.appendChild(review);
+      });
+      main.appendChild(block);
+    }
+  }
+
+  // Renderizar panel lateral (derecha)
+  function renderSideContent(center) {
+    const side = document.getElementById('centerSide');
+    side.innerHTML = '';
+    const h3 = createEl('h3', { text: 'Thông tin liên hệ' });
+    side.appendChild(h3);
+    const list = createEl('ul', { class: 'contact-list' });
+    // Dirección
+    if (center.address) {
+      const li = createEl('li');
+      li.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span>${center.address}</span>`;
+      list.appendChild(li);
+    }
+    // Zona / Khu vực
+    if (center.area) {
+      const li = createEl('li');
+      li.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> <span>${center.area}</span>`;
+      list.appendChild(li);
+    }
+    // Teléfono
+    if (center.phone) {
+      const li = createEl('li');
+      li.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.15A19.5 19.5 0 014.23 11.83 19.86 19.86 0 011.05 3.55 2 2 0 013 1.36h3a2 2 0 012 1.72c.11.81.29 1.61.55 2.39a2 2 0 01-.45 2L6.24 8.24a16 16 0 007.52 7.52l1.38-1.38a2 2 0 012-.45c.78.26 1.58.44 2.39.55a2 2 0 011.72 2z"/></svg> <span>${center.phone}</span>`;
+      list.appendChild(li);
+    }
+    // Email o sitio web
+    if (center.website) {
+      const li = createEl('li');
+      li.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.05 7v-.59c0-.74.4-1.42 1-1.8 1.64-1 5.51-2.61 7.95-2.61s6.31 1.61 7.95 2.61a2.08 2.08 0 011 1.8v9.18c0 .74-.4 1.42-1 1.8-1.64 1-5.51 2.61-7.95 2.61s-6.31-1.61-7.95-2.61a2.08 2.08 0 01-1-1.8V8.64"/><line x1="1" y1="7" x2="23" y2="7"/><line x1="1" y1="16" x2="23" y2="16"/><path d="M1 11h22"/></svg> <span><a href="${center.website.startsWith('http') ? center.website : 'http://' + center.website}" target="_blank" rel="noopener noreferrer">${center.website}</a></span>`;
+      list.appendChild(li);
+    }
+    // Horario de apertura
+    if (center.opening_hours_raw) {
+      const li = createEl('li');
+      li.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>${center.opening_hours_raw}</span>`;
+      list.appendChild(li);
+    }
+    side.appendChild(list);
+    // Mapa
+    if (center.maps_iframe) {
+      const iframe = document.createElement('iframe');
+      iframe.src = center.maps_iframe;
+      iframe.width = '100%';
+      iframe.height = '250';
+      iframe.style.border = '0';
+      iframe.loading = 'lazy';
+      iframe.allowFullscreen = true;
+      side.appendChild(iframe);
+    }
+  }
+
+  // Renderizar centros relacionados (mismo slug de categoría)
+  function renderRelatedCenters(center, centers) {
+    const section = document.getElementById('relatedCentersSection');
+    const container = document.getElementById('relatedCenters');
+    container.innerHTML = '';
+    // Filtrar por misma categoría principal
+    const related = centers.filter(c => c.category === center.category && c.slug !== center.slug);
+    if (!related.length) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+    related.slice(0, 4).forEach((c, i) => {
+      const card = createEl('div', { class: 'center-card' });
+      card.style.animationDelay = `${i * 0.07}s`;
+      const imageDiv = createEl('div', { class: 'card-image' });
+      if (c.image) {
+        imageDiv.style.backgroundImage = `url(${c.image})`;
+      }
+      if (c.category_primary) {
+        const badge = createEl('span', { class: 'card-badge', text: c.category_primary });
+        imageDiv.appendChild(badge);
+      }
+      card.appendChild(imageDiv);
+      const content = createEl('div', { class: 'card-content' });
+      const h3 = createEl('h3', { text: c.name });
+      content.appendChild(h3);
+      const address = createEl('p', { class: 'card-address' });
+      address.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ${c.address || ''}`;
+      content.appendChild(address);
+      // Rating
+      const ratingDiv = createEl('div', { class: 'card-rating' });
+      const stars = c.rating ? '★'.repeat(Math.round(c.rating)) + '☆'.repeat(5 - Math.round(c.rating)) : '–';
+      const starsSpan = createEl('span', { class: 'stars', text: stars });
+      const scoreSpan = createEl('span', { class: 'score', text: c.rating ? c.rating.toFixed(1) : '–' });
+      const reviewsSpan = createEl('span', { class: 'reviews', text: `(${c.reviews_count || 0} nhận xét)` });
+      ratingDiv.appendChild(starsSpan);
+      ratingDiv.appendChild(scoreSpan);
+      ratingDiv.appendChild(reviewsSpan);
+      content.appendChild(ratingDiv);
+      // CTA
+      const cta = createEl('a', { class: 'card-cta', text: 'Xem chi tiết →' });
+      cta.href = `ficha.html?id=${c.slug}`;
+      content.appendChild(cta);
+      card.appendChild(content);
+      container.appendChild(card);
+    });
+  }
+
+  // Generar preguntas frecuentes simples basadas en datos disponibles
+  function generateFAQs(center) {
+    const faqs = [];
+    // Pregunta sobre horarios
+    if (center.opening_hours_raw) {
+      faqs.push({ q: 'Trung tâm có mở cửa vào thời gian nào?', a: center.opening_hours_raw });
+    }
+    // Pregunta sobre cursos online
+    if (center.services && center.services.some(s => /online/i.test(s))) {
+      faqs.push({ q: 'Trung tâm có cung cấp khóa học trực tuyến không?', a: 'Có, chúng tôi cung cấp các khóa học trực tuyến.' });
+    }
+    // Pregunta sobre trẻ em
+    if (center.activities && center.activities.some(a => /trẻ em/i.test(a))) {
+      faqs.push({ q: 'Có lớp dành cho trẻ em không?', a: 'Có, trung tâm có các chương trình dành riêng cho trẻ em.' });
+    }
+    return faqs;
+  }
+
+  // Renderizar preguntas frecuentes
+  function renderFAQs(faqs) {
+    const section = document.getElementById('faqCenterSection');
+    const list = document.getElementById('faqList');
+    list.innerHTML = '';
+    if (!faqs || !faqs.length) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+    faqs.forEach(item => {
+      const accordionItem = createEl('div', { class: 'accordion-item' });
+      const header = createEl('button', { class: 'accordion-header' });
+      header.innerHTML = `<span>${item.q}</span><svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>`;
+      const content = createEl('div', { class: 'accordion-content' });
+      content.innerHTML = `<p>${item.a}</p>`;
+      accordionItem.appendChild(header);
+      accordionItem.appendChild(content);
+      list.appendChild(accordionItem);
+    });
+    // Añadir evento para los acordeones
+    document.querySelectorAll('.accordion-header').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  }
+
+  // Función principal
+  async function init() {
+    try {
+      const res = await fetch('data.json');
+      const data = await res.json();
+      const centers = data.centers;
+      const categories = data.categories;
+      const id = getCenterId();
+      const center = centers.find(c => c.slug === id);
+      if (!center) {
+        alert('Không tìm thấy trung tâm.');
+        return;
+      }
+      const categoryObj = categories.find(c => c.slug === center.category);
+      // Actualizar título y metadatos
+      document.title = `${center.name} | Anh Ngữ Việt Nam`;
+      document.getElementById('metaDescription').setAttribute('content', `${center.name} tại Việt Nam. Địa chỉ: ${center.address || ''}. Đánh giá ${center.rating || ''} với ${center.reviews_count || 0} nhận xét.`);
+      document.getElementById('canonicalLink').setAttribute('href', `https://example.com/ficha.html?id=${center.slug}`);
+      // Actualizar schema.org
+      const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        'name': center.name,
+        'description': `Trung tâm ${center.category_primary || ''}`,
+        'url': `https://example.com/ficha.html?id=${center.slug}`,
+        'telephone': center.phone || '',
+        'image': center.image || '',
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': center.address || '',
+          'addressLocality': center.city || '',
+          'addressCountry': 'Việt Nam'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': center.rating || '',
+          'reviewCount': center.reviews_count || 0
+        }
+      };
+      document.getElementById('schemaJson').textContent = JSON.stringify(schema);
+      // Renderizar secciones
+      renderBreadcrumbs(center, categoryObj);
+      renderHero(center, categoryObj);
+      renderMainContent(center);
+      renderSideContent(center);
+      renderRelatedCenters(center, centers);
+      const faqs = generateFAQs(center);
+      renderFAQs(faqs);
+    } catch (err) {
+      console.error('Error al cargar data.json', err);
+    }
+  }
+  // Ejecutar
+  document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
