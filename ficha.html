@@ -604,7 +604,8 @@
   // Función principal
   async function init() {
     try {
-      const res = await fetch('data.json');
+      // Cargar data.json desde la misma carpeta. Utilizamos ruta relativa
+      const res = await fetch('./data.json');
       const data = await res.json();
       const centers = data.centers;
       const categories = data.categories;
@@ -664,7 +665,4 @@
     }
   }
   // Ejecutar
-  document.addEventListener('DOMContentLoaded', init);
-  </script>
-</body>
-</html>
+  doc
