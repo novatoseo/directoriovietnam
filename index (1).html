@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="vi-vn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anh Ngữ Việt Nam | Danh bạ trung tâm Anh ngữ 2026</title>
+  <meta name="description" content="Khám phá hơn 100 trung tâm Anh ngữ tại Việt Nam. So sánh điểm đánh giá, đọc nhận xét và tìm trường phù hợp nhất cho bạn.">
+  <link rel="canonical" href="https://example.com/">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Anh Ngữ Việt Nam",
+    "description": "Danh bạ trung tâm Anh ngữ tại Việt Nam",
+    "url": "https://example.com/",
+    "inLanguage": "vi-vn",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://example.com/categoria.html?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">AN</span>
+        <span class="logo-text">Anh Ngữ <em>Việt Nam</em></span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="about.html">Giới thiệu</a>
+        <a href="add-listing.html">Thêm doanh nghiệp</a>
+        <a href="contact.html" class="nav-cta">Liên hệ</a>
+      </nav>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <a href="about.html">Giới thiệu</a>
+    <a href="add-listing.html">Thêm doanh nghiệp</a>
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero home">
+    <!-- Animated background grid -->
+    <div class="hero-grid" aria-hidden="true"></div>
+    <!-- Floating orbs -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Nền tảng khám phá giáo dục số 1 Việt Nam
+      </div>
+      <h1 class="hero-title">
+        Tìm trung tâm<br>
+        <span class="title-highlight">Anh ngữ</span> hoàn hảo<br>
+        của bạn
+      </h1>
+      <p class="hero-subtitle">Khám phá, so sánh và lựa chọn từ hàng trăm trung tâm Anh ngữ trên toàn Việt Nam. Đánh giá thực tế, thông tin minh bạch.</p>
+
+      <!-- Stats bar -->
+      <div id="stats" class="stats-bar"></div>
+
+      <!-- Search box -->
+      <div class="search-box">
+        <div class="search-field">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" placeholder="Tìm theo tên hoặc địa chỉ…" autocomplete="off">
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field select-field">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h8m-8 6h16"/></svg>
+          <select id="categorySelect">
+            <option value="">Tất cả danh mục</option>
+          </select>
+        </div>
+        <button id="searchButton" class="search-btn">
+          <span>Tìm kiếm</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- Popular tags -->
+      <div class="popular-tags">
+        <span class="tags-label">Phổ biến:</span>
+        <a href="categoria.html?search=IELTS" class="tag">IELTS</a>
+        <a href="categoria.html?search=TOEIC" class="tag">TOEIC</a>
+        <a href="categoria.html?search=trẻ em" class="tag">Trẻ em</a>
+        <a href="categoria.html?search=giao tiếp" class="tag">Giao tiếp</a>
+        <a href="categoria.html?search=online" class="tag">Online</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Cuộn xuống</span>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section id="categoriesSection" class="section-categories">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Danh mục</div>
+        <h2 class="section-title">Khám phá theo<br>loại hình đào tạo</h2>
+      </div>
+      <div id="categoriesGrid" class="categories-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== TOP CENTERS ===== -->
+  <section id="topCentersSection" class="section-centers">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Nổi bật</div>
+          <h2 class="section-title">Trung tâm<br>hàng đầu</h2>
+        </div>
+        <a href="categoria.html" id="verTodos" class="btn btn-ghost">
+          Xem tất cả
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div id="centersGrid" class="centers-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BLOCK ===== -->
+  <section class="trust-block">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          Dữ liệu độc lập
+        </div>
+        <h2 class="trust-title">Thông tin minh bạch &amp; đáng tin cậy</h2>
+        <p class="trust-text">Dữ liệu đến từ các nguồn công khai và được cập nhật thường xuyên để cung cấp thông tin chính xác và độc lập. Không có quảng cáo ẩn, không có thứ hạng trả phí.</p>
+        <div class="trust-stats">
+          <div class="trust-stat">
+            <strong>100%</strong>
+            <span>Độc lập</span>
+          </div>
+          <div class="trust-stat-divider"></div>
+          <div class="trust-stat">
+            <strong>Hàng tháng</strong>
+            <span>Cập nhật</span>
+          </div>
+          <div class="trust-stat-divider"></div>
+          <div class="trust-stat">
+            <strong>10/02/2026</strong>
+            <span>Cập nhật lần cuối</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEO CONTENT ===== -->
+  <section class="seo-content">
+    <div class="container">
+      <div class="seo-inner">
+        <div class="seo-text">
+          <div class="section-label">Hướng dẫn</div>
+          <h2>Cách chọn trung tâm Anh ngữ phù hợp</h2>
+          <p>Việt Nam có rất nhiều trung tâm Anh ngữ với chất lượng và mức học phí đa dạng. Để chọn lựa tốt nhất, hãy cân nhắc về vị trí, chất lượng giáo viên, chứng chỉ được công nhận, lịch học linh hoạt và chi phí phù hợp với ngân sách của bạn.</p>
+          <p>Trong hướng dẫn này bạn sẽ tìm thấy những lời khuyên hữu ích từ các chuyên gia giáo dục và học viên đã có kinh nghiệm.</p>
+          <a href="about.html" class="btn btn-primary">Đọc thêm hướng dẫn</a>
+        </div>
+        <div class="seo-checklist">
+          <h3>Checklist chọn trường</h3>
+          <ul>
+            <li><span class="check">✓</span> Giáo viên bản ngữ hoặc chứng chỉ quốc tế</li>
+            <li><span class="check">✓</span> Lớp học quy mô nhỏ (dưới 15 học viên)</li>
+            <li><span class="check">✓</span> Chương trình học được cấu trúc rõ ràng</li>
+            <li><span class="check">✓</span> Cơ sở vật chất hiện đại</li>
+            <li><span class="check">✓</span> Phản hồi tích cực từ học viên cũ</li>
+            <li><span class="check">✓</span> Chính sách hoàn trả minh bạch</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Hỗ trợ</div>
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+      </div>
+      <div class="accordion-list">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Các trung tâm được chọn như thế nào?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Các trung tâm được lấy từ nguồn dữ liệu công khai và được sắp xếp theo điểm đánh giá và số lượng nhận xét từ học viên thực tế. Chúng tôi không nhận tiền để xếp hạng cao hơn.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Thông tin được cập nhật thường xuyên ra sao?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Chúng tôi cập nhật dữ liệu hàng tháng để bổ sung trung tâm mới và cập nhật điểm số, địa chỉ và thông tin liên hệ.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Tôi có thể thêm trung tâm của mình vào danh sách không?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Có! Nếu bạn là chủ sở hữu hoặc quản lý một trung tâm Anh ngữ, bạn có thể gửi thông tin qua trang <a href="add-listing.html">Thêm doanh nghiệp</a>. Đội ngũ chúng tôi sẽ xem xét và thêm vào danh sách trong vòng 5–7 ngày làm việc.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Làm thế nào để báo cáo thông tin sai?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Vui lòng <a href="contact.html">liên hệ với chúng tôi</a> và cung cấp thông tin chính xác. Chúng tôi sẽ xác minh và cập nhật trong thời gian sớm nhất.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Bạn sở hữu một trung tâm?</h2>
+          <p>Thêm doanh nghiệp của bạn vào danh bạ miễn phí và tiếp cận hàng nghìn học viên tiềm năng mỗi tháng.</p>
+        </div>
+        <a href="add-listing.html" class="btn btn-primary btn-lg">
+          Thêm trung tâm miễn phí
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">AN</span>
+            <span class="logo-text">Anh Ngữ <em>Việt Nam</em></span>
+          </a>
+          <p>Cẩm nang của bạn về trung tâm Anh ngữ tại Việt Nam. Thông tin minh bạch, cập nhật thường xuyên.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Điều hướng</h4>
+            <a href="about.html">Giới thiệu</a>
+            <a href="categoria.html">Tất cả trung tâm</a>
+            <a href="add-listing.html">Thêm doanh nghiệp</a>
+            <a href="contact.html">Liên hệ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Pháp lý</h4>
+            <a href="privacy.html">Quyền riêng tư</a>
+            <a href="terms.html">Điều khoản sử dụng</a>
+            <a href="cookies.html">Chính sách cookie</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Anh Ngữ Việt Nam. Mọi quyền được bảo lưu.</p>
+        <p>Được làm với <span aria-label="yêu">❤</span> tại Việt Nam</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ── Utilities ────────────────────────────────────────────────────────────
+  function createEl(tag, opts = {}) {
+    const el = document.createElement(tag);
+    if (opts.class) el.className = opts.class;
+    if (opts.text) el.textContent = opts.text;
+    if (opts.html) el.innerHTML = opts.html;
+    return el;
+  }
+
+  // ── Header scroll effect ─────────────────────────────────────────────────
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Mobile nav ───────────────────────────────────────────────────────────
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  mobileToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    mobileToggle.classList.toggle('active', open);
+    mobileNav.setAttribute('aria-hidden', String(!open));
+  });
+
+  // ── Accordion ───────────────────────────────────────────────────────────
+  document.querySelectorAll('.accordion-header').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Load data ────────────────────────────────────────────────────────────
+  async function init() {
+    try {
+      const res = await fetch('data.json');
+      const data = await res.json();
+      renderStats(data);
+      renderCategories(data.categories);
+      renderTopCenters(data.centers);
+      populateCategorySelect(data.categories);
+    } catch (err) {
+      // Mostrar datos de demostración si no hay data.json
+      renderDemoData();
+    }
+  }
+
+  function renderStats(data) {
+    const statsEl = document.getElementById('stats');
+    const numCenters = data.centers.length;
+    const numCategories = data.categories.length;
+    statsEl.innerHTML = `
+      <div class="stat-item"><strong>${numCenters}+</strong><span>Trung tâm</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-item"><strong>${numCategories}</strong><span>Danh mục</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-item"><strong>4.7★</strong><span>Đánh giá TB</span></div>
+    `;
+  }
+
+  function renderCategories(categories) {
+    const grid = document.getElementById('categoriesGrid');
+    grid.innerHTML = '';
+    categories.forEach((cat, i) => {
+      const card = createEl('div', { class: 'category-card' });
+      card.style.animationDelay = `${i * 0.07}s`;
+      card.innerHTML = `
+        <div class="cat-icon">${cat.icon || '📚'}</div>
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-count">${cat.count} trung tâm</div>
+        <div class="cat-arrow">→</div>
+      `;
+      card.addEventListener('click', () => {
+        window.location.href = `categoria.html?kategori=${cat.slug}`;
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  function renderTopCenters(centers) {
+    const grid = document.getElementById('centersGrid');
+    grid.innerHTML = '';
+    const top = centers.slice(0, 6);
+    top.forEach((center, i) => {
+      const card = createEl('div', { class: 'center-card' });
+      card.style.animationDelay = `${i * 0.1}s`;
+      const stars = center.rating ? '★'.repeat(Math.round(center.rating)) + '☆'.repeat(5 - Math.round(center.rating)) : '─';
+      card.innerHTML = `
+        <div class="card-image" ${center.image ? `style="background-image:url(${center.image})"` : ''}>
+          ${center.category ? `<span class="card-badge">${center.category}</span>` : ''}
+        </div>
+        <div class="card-content">
+          <h3>${center.name}</h3>
+          <p class="card-address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${center.address || 'Việt Nam'}
+          </p>
+          <div class="card-rating">
+            <span class="stars">${stars}</span>
+            <span class="score">${center.rating || '─'}</span>
+            <span class="reviews">(${center.reviews_count || 0} nhận xét)</span>
+          </div>
+          <a href="ficha.html?id=${center.slug}" class="card-cta">Xem hồ sơ →</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function populateCategorySelect(categories) {
+    const select = document.getElementById('categorySelect');
+    categories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.slug;
+      opt.textContent = cat.name;
+      select.appendChild(opt);
+    });
+  }
+
+  // Demo data if no data.json
+  function renderDemoData() {
+    const demoCategories = [
+      { icon: '🎓', name: 'IELTS / TOEFL', count: 24, slug: 'ielts' },
+      { icon: '💼', name: 'Tiếng Anh giao tiếp', count: 38, slug: 'giao-tiep' },
+      { icon: '👶', name: 'Tiếng Anh trẻ em', count: 19, slug: 'tre-em' },
+      { icon: '💻', name: 'Học online', count: 15, slug: 'online' },
+      { icon: '🏢', name: 'Tiếng Anh doanh nghiệp', count: 11, slug: 'doanh-nghiep' },
+      { icon: '📝', name: 'TOEIC', count: 22, slug: 'toeic' },
+    ];
+    const demoCenters = [
+      { name: 'Wall Street English', address: 'Hà Nội', rating: 4.8, reviews_count: 342, slug: 'wall-street', category: 'Giao tiếp' },
+      { name: 'Apollo English', address: 'TP. Hồ Chí Minh', rating: 4.6, reviews_count: 289, slug: 'apollo', category: 'Trẻ em' },
+      { name: 'ILA Vietnam', address: 'Toàn quốc', rating: 4.7, reviews_count: 415, slug: 'ila', category: 'IELTS' },
+      { name: 'British Council', address: 'Hà Nội & HCM', rating: 4.9, reviews_count: 521, slug: 'british-council', category: 'IELTS' },
+      { name: 'YOLA', address: 'TP. Hồ Chí Minh', rating: 4.5, reviews_count: 198, slug: 'yola', category: 'Trẻ em' },
+      { name: 'ZIM Academy', address: 'Toàn quốc', rating: 4.7, reviews_count: 303, slug: 'zim', category: 'TOEIC' },
+    ];
+    document.getElementById('stats').innerHTML = `
+      <div class="stat-item"><strong>100+</strong><span>Trung tâm</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-item"><strong>6</strong><span>Danh mục</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-item"><strong>4.7★</strong><span>Đánh giá TB</span></div>
+    `;
+    renderCategories(demoCategories);
+    renderTopCenters(demoCenters);
+    populateCategorySelect(demoCategories);
+  }
+
+  // ── Search ───────────────────────────────────────────────────────────────
+  document.getElementById('searchButton').addEventListener('click', () => {
+    const term = document.getElementById('searchInput').value.trim();
+    const categoria = document.getElementById('categorySelect').value;
+    const params = new URLSearchParams();
+    if (categoria) params.set('kategori', categoria);
+    if (term) params.set('search', term);
+    window.location.href = `categoria.html?${params.toString()}`;
+  });
+
+  document.getElementById('searchInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('searchButton').click();
+  });
+
+  // ── Intersection Observer for fade-in ────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.section-header, .trust-inner, .seo-inner, .cta-inner').forEach(el => {
+    observer.observe(el);
+  });
+
+  init();
+  </script>
+</body>
+</html>
