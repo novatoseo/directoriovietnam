@@ -227,12 +227,19 @@ def build_ficha(center, data):
 
     # Mapa
     if center.get('maps_iframe'):
-        iframe = center['maps_iframe']
-        # Asegurar loading=lazy
-        if 'loading=' not in iframe:
-            iframe = iframe.replace('<iframe', '<iframe loading="lazy"', 1)
-        # Quitar "embed" si viene como link raw y adaptarlo
-        sections.append(f'<div class="detail-section"><h2 class="detail-h"><span class="icon" aria-hidden="true">🗺️</span>Vị trí trên bản đồ</h2><div class="map-wrapper">{iframe}</div></div>')
+        mi = center['maps_iframe'].strip()
+        # El campo puede venir como iframe HTML completo o como URL. Normalizar.
+        if mi.startswith('<iframe'):
+            iframe = mi
+            if 'loading=' not in iframe:
+                iframe = iframe.replace('<iframe', '<iframe loading="lazy"', 1)
+        elif mi.startswith('http'):
+            # URL sola: envolver en iframe
+            iframe = f'<iframe src="{esc(mi)}" width="100%" height="400" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ {esc(name)}" allowfullscreen></iframe>'
+        else:
+            iframe = ''
+        if iframe:
+            sections.append(f'<div class="detail-section"><h2 class="detail-h"><span class="icon" aria-hidden="true">🗺️</span>Vị trí trên bản đồ</h2><div class="map-wrapper">{iframe}</div></div>')
     elif center.get('geo', {}).get('lat'):
         lat, lng = center['geo']['lat'], center['geo']['lng']
         iframe_url = f'https://www.google.com/maps/embed/v1/place?key=&q={lat},{lng}'
