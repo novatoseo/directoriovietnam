@@ -2485,3 +2485,56 @@ a.skip-link:focus { top: 8px; }
   grid-template-columns: none;
   gap: 0;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   STATIC PAGES (them-trung-tam, chinh-sach-bao-mat, dieu-khoan)
+   ══════════════════════════════════════════════════════════════════════ */
+.section-static {
+  padding: 64px 0 96px;
+  background: var(--clr-bg);
+}
+.static-inner {
+  max-width: 820px;
+}
+.static-inner .lead {
+  font-size: 1.15rem;
+  color: var(--clr-text);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--clr-border);
+}
+.static-inner h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--clr-navy);
+  margin: 36px 0 14px;
+  font-weight: 700;
+}
+.static-inner p {
+  color: var(--clr-text);
+  line-height: 1.75;
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+.static-inner ul, .static-inner ol {
+  margin: 0 0 20px 20px;
+  padding-left: 8px;
+}
+.static-inner li {
+  color: var(--clr-text);
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+.static-inner a {
+  color: var(--clr-gold-dark);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(201,168,76,.3);
+}
+.static-inner a:hover { color: var(--clr-navy); border-bottom-color: var(--clr-navy); }
+.static-inner .muted {
+  color: var(--clr-muted);
+  font-size: .9rem;
+  margin-bottom: 32px;
+}
+.static-inner strong { font-weight: 700; color: var(--clr-navy); }

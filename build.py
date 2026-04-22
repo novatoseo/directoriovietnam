@@ -843,6 +843,7 @@ def build_sitemap(data):
     urls = [
         (SITE['domain']+'/', '1.0', 'weekly'),
         (SITE['domain']+'/danh-muc/', '0.9', 'weekly'),
+        (SITE['domain']+'/them-trung-tam.html', '0.4', 'yearly'),
     ]
     for cat in data['categories']:
         n = len([c for c in data['centers'] if c.get('category_slug')==cat['slug']])
@@ -900,6 +901,177 @@ def build_404():
 
 
 # ────────────────────────────────────────────────────────────────────
+# STATIC PAGES — Them trung tam, Quyen rieng tu, Dieu khoan
+# ────────────────────────────────────────────────────────────────────
+def _static_page(slug, title, description, h1, body_html, canonical=None, noindex=False):
+    canonical = canonical or f'/{slug}.html'
+    head = meta_head(title, description, canonical, noindex=noindex).format(css_path='')
+    html_body = f'''<!DOCTYPE html>
+<html lang="{SITE['lang']}">
+<head>
+{head}
+</head>
+<body class="page-static">
+{header_html(base='')}
+<main id="main">
+  <section class="hero category">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Trang chủ</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <span class="current" aria-current="page">{esc(h1)}</span>
+      </nav>
+      <h1 class="category-h1">{esc(h1)}</h1>
+    </div>
+  </section>
+  <section class="section-static">
+    <div class="container static-inner">
+      {body_html}
+    </div>
+  </section>
+</main>
+{footer_html(base='')}
+{mobile_toggle_script()}
+</body>
+</html>'''
+    with open(os.path.join(OUT, f'{slug}.html'), 'w', encoding='utf-8') as f:
+        f.write(html_body)
+
+
+def build_add_listing():
+    """Them trung tam — página para que negocios pidan ser añadidos"""
+    body = '''
+      <p class="lead">Bạn điều hành một trung tâm Anh ngữ tại Việt Nam và muốn xuất hiện trong danh bạ của chúng tôi? Chúng tôi tiếp nhận yêu cầu liên tục và đánh giá theo tiêu chí chất lượng.</p>
+
+      <h2>Tiêu chí để được thêm vào danh bạ</h2>
+      <ul>
+        <li>Trung tâm hoạt động hợp pháp tại Hồ Chí Minh, Đà Nẵng hoặc Hà Nội</li>
+        <li>Có địa chỉ vật lý cụ thể (không chỉ online)</li>
+        <li>Có hồ sơ Google Business Profile đang hoạt động</li>
+        <li>Có website hoặc kênh liên hệ chính thức</li>
+      </ul>
+
+      <h2>Cách gửi yêu cầu</h2>
+      <p>Gửi email đến <a href="mailto:contact@anhnguvn.com">contact@anhnguvn.com</a> với thông tin sau:</p>
+      <ul>
+        <li>Tên đầy đủ của trung tâm</li>
+        <li>Địa chỉ và thành phố</li>
+        <li>Số điện thoại và website</li>
+        <li>Loại hình đào tạo (Anh ngữ tổng quát, luyện thi IELTS, trẻ em...)</li>
+        <li>Link đến hồ sơ Google Maps của trung tâm</li>
+      </ul>
+
+      <h2>Quy trình xử lý</h2>
+      <p>Chúng tôi sẽ xác minh thông tin trong vòng <strong>3-5 ngày làm việc</strong> và liên hệ lại khi hồ sơ của bạn được thêm vào danh bạ. Dịch vụ này hoàn toàn <strong>miễn phí</strong>.</p>
+
+      <h2>Cập nhật thông tin trung tâm hiện có</h2>
+      <p>Nếu trung tâm của bạn đã có trong danh bạ nhưng thông tin không chính xác (địa chỉ sai, số điện thoại cũ, giờ mở cửa không đúng...), vui lòng gửi email với chi tiết cần cập nhật kèm bằng chứng (screenshot Google Maps mới nhất, website chính thức).</p>
+    '''
+    _static_page(
+        slug='them-trung-tam',
+        title='Thêm trung tâm vào danh bạ | Anh Ngữ Việt Nam',
+        description='Hướng dẫn thêm trung tâm Anh ngữ của bạn vào danh bạ Anh Ngữ Việt Nam. Miễn phí, xác minh trong 3-5 ngày.',
+        h1='Thêm trung tâm vào danh bạ',
+        body_html=body,
+    )
+
+
+def build_privacy():
+    today = date.today().strftime('%d/%m/%Y')
+    body = f'''
+      <p class="muted"><em>Cập nhật lần cuối: {today}</em></p>
+
+      <h2>1. Giới thiệu</h2>
+      <p>Trang web Anh Ngữ Việt Nam ("chúng tôi", "của chúng tôi") tôn trọng quyền riêng tư của người dùng. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ thông tin khi bạn truy cập trang web của chúng tôi.</p>
+
+      <h2>2. Thông tin chúng tôi thu thập</h2>
+      <p>Chúng tôi thu thập thông tin hạn chế để vận hành và cải thiện dịch vụ:</p>
+      <ul>
+        <li><strong>Thông tin sử dụng:</strong> loại trình duyệt, thiết bị, hệ điều hành, trang xem và thời gian truy cập</li>
+        <li><strong>Thông tin bạn cung cấp:</strong> khi bạn liên hệ qua email hoặc yêu cầu thêm trung tâm vào danh bạ</li>
+      </ul>
+      <p>Chúng tôi <strong>không thu thập</strong> thông tin cá nhân nhạy cảm mà không có sự đồng ý của bạn.</p>
+
+      <h2>3. Sử dụng cookie</h2>
+      <p>Chúng tôi sử dụng cookie phiên để cải thiện trải nghiệm duyệt web. Cookie chỉ tồn tại trong phiên trình duyệt hiện tại và không được chia sẻ với bên thứ ba. Bạn có thể tắt cookie trong cài đặt trình duyệt.</p>
+
+      <h2>4. Dịch vụ của bên thứ ba</h2>
+      <p>Trang web sử dụng các dịch vụ sau, mỗi dịch vụ có chính sách riêng của mình:</p>
+      <ul>
+        <li><strong>Google Fonts:</strong> để hiển thị phông chữ</li>
+        <li><strong>Google Maps:</strong> để hiển thị bản đồ vị trí trung tâm</li>
+        <li><strong>Google Photos (lh3.googleusercontent.com):</strong> để hiển thị ảnh trung tâm từ Google Maps</li>
+      </ul>
+
+      <h2>5. Bảo mật dữ liệu</h2>
+      <p>Chúng tôi áp dụng các biện pháp bảo mật hợp lý để bảo vệ thông tin. Tuy nhiên, không có hệ thống truyền dữ liệu qua internet nào là an toàn tuyệt đối.</p>
+
+      <h2>6. Quyền của bạn</h2>
+      <p>Bạn có quyền yêu cầu xem, chỉnh sửa hoặc xóa thông tin cá nhân chúng tôi lưu trữ về bạn. Gửi yêu cầu đến <a href="mailto:privacy@anhnguvn.com">privacy@anhnguvn.com</a>.</p>
+
+      <h2>7. Thay đổi chính sách</h2>
+      <p>Chúng tôi có thể cập nhật chính sách này theo thời gian. Ngày cập nhật sẽ được ghi rõ ở đầu trang.</p>
+
+      <h2>8. Liên hệ</h2>
+      <p>Mọi câu hỏi về chính sách bảo mật, vui lòng liên hệ: <a href="mailto:contact@anhnguvn.com">contact@anhnguvn.com</a></p>
+    '''
+    _static_page(
+        slug='chinh-sach-bao-mat',
+        title='Chính sách bảo mật | Anh Ngữ Việt Nam',
+        description='Chính sách quyền riêng tư của Anh Ngữ Việt Nam. Cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của người dùng.',
+        h1='Chính sách bảo mật',
+        body_html=body,
+        noindex=True,
+    )
+
+
+def build_terms():
+    today = date.today().strftime('%d/%m/%Y')
+    body = f'''
+      <p class="muted"><em>Cập nhật lần cuối: {today}</em></p>
+
+      <h2>1. Chấp nhận điều khoản</h2>
+      <p>Bằng việc truy cập và sử dụng trang web Anh Ngữ Việt Nam, bạn đồng ý tuân thủ các điều khoản và điều kiện được nêu dưới đây. Nếu bạn không đồng ý, vui lòng không sử dụng trang web.</p>
+
+      <h2>2. Mục đích của danh bạ</h2>
+      <p>Trang web cung cấp thông tin tham khảo về các trung tâm Anh ngữ tại Việt Nam được tổng hợp từ các nguồn công khai, chủ yếu là Google Maps. Thông tin bao gồm tên, địa chỉ, số điện thoại, website, đánh giá và ảnh đại diện.</p>
+
+      <h2>3. Không đảm bảo tính chính xác tuyệt đối</h2>
+      <p>Dù chúng tôi nỗ lực duy trì thông tin chính xác và cập nhật, thông tin trên trang web có thể thay đổi mà không được cập nhật kịp thời. Người dùng nên <strong>xác minh thông tin trực tiếp với trung tâm</strong> trước khi đưa ra quyết định quan trọng.</p>
+
+      <h2>4. Không có mối quan hệ thương mại</h2>
+      <p>Anh Ngữ Việt Nam là danh bạ độc lập. Việc một trung tâm xuất hiện trong danh bạ <strong>không có nghĩa</strong> chúng tôi đại diện, giới thiệu chính thức hoặc có mối quan hệ thương mại với trung tâm đó, trừ khi được ghi rõ.</p>
+
+      <h2>5. Sở hữu trí tuệ</h2>
+      <p>Nội dung biên tập, thiết kế và mã nguồn của trang web thuộc quyền sở hữu của chúng tôi. Ảnh và thông tin về từng trung tâm thuộc về chủ sở hữu tương ứng và được hiển thị theo điều khoản của Google Maps.</p>
+
+      <h2>6. Giới hạn trách nhiệm</h2>
+      <p>Chúng tôi không chịu trách nhiệm về bất kỳ thiệt hại nào phát sinh từ việc sử dụng thông tin trên trang web, bao gồm nhưng không giới hạn: chất lượng dịch vụ của trung tâm, học phí, cam kết của giáo viên, kết quả học tập.</p>
+
+      <h2>7. Liên kết đến bên thứ ba</h2>
+      <p>Trang web chứa liên kết đến các website của trung tâm và Google Maps. Chúng tôi không kiểm soát và không chịu trách nhiệm về nội dung của các trang web bên ngoài.</p>
+
+      <h2>8. Yêu cầu xóa/chỉnh sửa</h2>
+      <p>Nếu bạn là chủ sở hữu một trung tâm được liệt kê và muốn yêu cầu xóa hoặc chỉnh sửa thông tin, vui lòng gửi email đến <a href="mailto:contact@anhnguvn.com">contact@anhnguvn.com</a>. Chúng tôi sẽ xử lý yêu cầu trong vòng 5 ngày làm việc.</p>
+
+      <h2>9. Thay đổi điều khoản</h2>
+      <p>Chúng tôi có quyền cập nhật điều khoản này bất kỳ lúc nào. Việc tiếp tục sử dụng trang web sau khi điều khoản được cập nhật đồng nghĩa với việc chấp nhận thay đổi.</p>
+
+      <h2>10. Luật áp dụng</h2>
+      <p>Điều khoản này được điều chỉnh bởi pháp luật Việt Nam.</p>
+    '''
+    _static_page(
+        slug='dieu-khoan',
+        title='Điều khoản sử dụng | Anh Ngữ Việt Nam',
+        description='Điều khoản và điều kiện sử dụng danh bạ Anh Ngữ Việt Nam. Thông tin về nguồn dữ liệu, giới hạn trách nhiệm và quyền sở hữu.',
+        h1='Điều khoản sử dụng',
+        body_html=body,
+        noindex=True,
+    )
+
+
+# ────────────────────────────────────────────────────────────────────
 # MAIN
 # ────────────────────────────────────────────────────────────────────
 def main():
@@ -933,6 +1105,9 @@ def main():
     build_sitemap(data); print('  ✓ sitemap.xml')
     build_robots(); print('  ✓ robots.txt')
     build_404(); print('  ✓ 404.html')
+    build_add_listing(); print('  ✓ them-trung-tam.html')
+    build_privacy(); print('  ✓ chinh-sach-bao-mat.html')
+    build_terms(); print('  ✓ dieu-khoan.html')
     print('Done.')
 
 
